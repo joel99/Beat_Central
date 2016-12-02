@@ -1,0 +1,22 @@
+Site Devlog
+Team BassDrop - Joel Ye, Anthony Chen, Mikhail Kotlik
+
+
+Newest Entries at the bottom
+Example Header formatting formatting
+firstL -- TIMESTAMP\n
+jonalfD -- 2016-12-04 14:32
+
+==============================
+ joelY --
+ anthonyC -- 
+ mikhailK -- 
+==============================
+
+==============================
+ All -- 2016-12-02 14:33
+==============================
+- Finishing up design document
+
+
+==============================
