@@ -2,5 +2,7 @@ todo file:
 ==============================
 
 Joel - content.getFeed()
+     - following system
 
 Anthony - templating and more styles
+	- set up search.html given entries (see app.py)

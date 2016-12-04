@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block jumbo %} {% endblock %}
+
+{% block content %}
+<div class = "container">
+    <form action="/changePass/" method="POST">
+      <center><h1>Change Password</h1><br></center>
+      <label for="pass">Old Password</label><br>
+      <input type="password" name="pass" placeholder="Old Password" required>
+      <br><br>
+      <label for="pass1">New Password</label><br>
+      <input type="password" name="pass1" placeholder="New Password" required>
+      <br><br>
+      <label for="pass2">Confirm Password</label><br>
+      <input type="password" name="pass2" placeholder="Retype Password" required>
+      <br><br>
+      <input type="submit" value="Submit Change">
+    </form>
+</div>
+{% endblock %}

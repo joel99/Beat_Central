@@ -1,16 +1,16 @@
 import sqlite3
 
+#AccountInfo Table -----------------------------------------------------
 def isValidAccountInfo(uN, hP):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
 
     cmd = "SELECT * FROM AccountInfo WHERE username = '%s' AND hashedPass = '%s';"%(uN, hP)
-    sel = c.execute(cmd)
-    if (sel.fetchone()): #if it exists
-        db.close()
-        return True
+    sel = c.execute(cmd).fetchone()
     db.close()
-    return False
+    if sel == None:
+        return False
+    return True
 
 def getUserID(uN):
     db = sqlite3.connect("data/main.db")
@@ -25,17 +25,17 @@ def registerAccountInfo(uN, hP):
     c = db.cursor()
 
     cmd = "SELECT userID FROM AccountInfo ORDER BY userID DESC;"
-    sel = c.execute(cmd)
-    userID = 1
-    for record in sel:
-        userID = userID + record[0]
-        break
+    sel = c.execute(cmd).fetchone()
+    if sel == None: #non-null
+        userID = sel[0] + 1
+    else:
+        userID = 1
         
     addAT = "INSERT INTO AccountInfo VALUES ('%s','%s',%d);"%(uN,hP,userID)
     c.execute(addAT)
 
     default = ""
-   
+    
     addPT = "INSERT INTO UserInfo VALUES (%d,'%s', '%s', '%s', '%s');"%(userID, default, default, default, default)
 
     c.execute(addPT)
@@ -45,12 +45,31 @@ def registerAccountInfo(uN, hP):
 def doesUserExist(uN):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
-    ret = ""
-    cmd = "SELECT * FROM AccountInfo;"
-    sel = c.execute(cmd)
-    for record in sel:
-        if uN == record[0]:
-            db.close()
-            return True
+    cmd = "SELECT * FROM AccountInfo WHERE username = '%s';"%(uN)
+    sel = c.execute(cmd).fetchone()
     db.close()
-    return False
+    if sel == None:
+        return False
+    else:
+        return True 
+
+def getPass(userID):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    cmd = "SELECT * FROM AccountInfo WHERE userID = '%s';"%(userID)
+    sel = c.execute(cmd).fetchone()
+    password = sel[1]
+    print password
+    db.close()
+    return password
+
+def changePass(userID, newPass):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    cmd = "UPDATE AccountInfo SET hashedPass = '%s'WHERE UserID = %d;"%(newPass, userID)
+    sel = c.execute(cmd)
+    db.commit()
+    db.close()
+    
+
+#UserInfo Table -----------------------------------------------------

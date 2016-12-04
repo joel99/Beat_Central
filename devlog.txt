@@ -27,3 +27,12 @@ jonalfD -- 2016-12-04 14:32
 - Login page setup, login/register preliminary setup
 - Database initialized
 ==============================
+
+==============================
+ joelY -- 2016-12-04 10:58
+
+- Login/Registration system finished
+- Change password now available
+- content.py skeleton set up
+- toolbar set up, base template set up
+==============================
