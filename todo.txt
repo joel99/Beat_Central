@@ -1,0 +1,6 @@
+todo file:
+==============================
+
+Joel - content.getFeed()
+
+Anthony - templating and more styles
