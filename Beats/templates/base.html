@@ -10,30 +10,39 @@
   <body>
     <!--TOOLBAR-->
     <nav class = "navbar navbar-default">
+     <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>	
+          <a class="navbar-brand" href="#">Beat Central</a>
+     </div>
       <form class = "container" action="/toolbar/" method="POST">
+	<div id ="navbar" class="collapse navbar-collapse">
 	<ul class = "nav navbar-nav navbar-right">
 	  {% if isLoggedIn %}
-	  <li><input type="submit" name="type" value="Settings"></li>
-	  <li><input type="submit" name="type" value="Log Out"></li>
+	  <li><a href ="#"><input type="submit" name="type" value="Settings"></a></li>
+	  <li><a href ="#"><input type="submit" name="type" value="Log Out"></a></li>
 	  {% else %}
 	  {% endif %}
 	</ul>
       </form>
+    </div>
     </nav>
     <br>
     <div class = "container">
       {% block jumbo %}
       
       <div class = "jumbotron">
-	<h1>Beat Central</h1>
-      </div>
-      <div class = "container">
-	<h2>Search for music</h2>
-      </div>
+	<center><h1>Search for Music!<h1></center>
       <div class = "container">
 	<form action = "/search/" class = "input-group" method = "GET">
 	  <input class = "form-control" type = "text" required></input>
-	  <input type = "submit" class = "btn-primary" value = "Go!">
+	  <span class = "input-group-btn">
+	  <input type = "submit" class = "btn btn-primary" value = "Go!">
+	  </span>
 	</form>
       </div>
 
