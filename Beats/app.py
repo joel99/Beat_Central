@@ -5,6 +5,7 @@ from utils import content, utils
 app = Flask(__name__)
 app.secret_key = "secrets"
 
+#Site Navigation
 @app.route("/")
 def root():
     if (not isLoggedIn()):#if you're not logged in
@@ -52,7 +53,7 @@ def search():
     return render_template('search.html', songs = matchedSongs, artists = matchedArtists, albums = matchedAlbums)
 
 
-@app.route('/settings')
+@app.route('/settings/')
 def settings():
     if (not isLoggedIn()):
         return redirect(url_for('root'))
@@ -68,8 +69,22 @@ def changePass():
         utils.changePass(getUserID(), d["pass1"])
     return redirect(url_for('root'))
 
+#User Interaction
+#for favorites display, give template tuples, entity and whether or not it's favorited
+@app.route('/search/', methods = ['GET'])
+def searchResult():
+    query = request.args.get("query")
+    #todo, process strings from REST APIs, get favorite data, 
+    return render_template('search.html', isLoggedIn = str(isLoggedIn()))
+
+
+def resultPage():
+    return None
+
 
 #HELPERS-----------------------------------------------------------------------
+
+#Login Helpers
 def isLoggedIn():
     return "userID" in session
 

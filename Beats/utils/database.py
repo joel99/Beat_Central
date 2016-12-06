@@ -67,9 +67,49 @@ def changePass(userID, newPass):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
     cmd = "UPDATE AccountInfo SET hashedPass = '%s'WHERE UserID = %d;"%(newPass, userID)
-    sel = c.execute(cmd)
+    c.execute(cmd)
     db.commit()
     db.close()
     
 
 #UserInfo Table -----------------------------------------------------
+#favType expects 'Songs', 'Artists', or 'Albums'
+#entries are delimited by '::'
+
+def isFavorited(userID, favType, entry):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
+    favs = c.execute(cmd).fetchone() #is the string
+    return entry in favs.split('::')
+    
+#does not have isFavorited check
+def addFavorite(userID, favType, entry):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    #first get the relevant info
+    cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
+    oldFavs = c.execute(cmd).fetchone() #is the string
+    if len(oldFavs) > 0:
+        newFavs = oldFavs + "::" + entry
+    else:
+        newFavs = entry
+    cmd = "UPDATE UserInfo SET fav%s='%s' WHERE UserID = %d;"%(favType, newFavs, userID)
+    c.execute(cmd)
+    db.commit()
+    db.close()
+
+
+def rmFavorite(userID, favType, entry):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    #first get the relevant info
+    cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
+    oldFavs = c.execute(cmd).fetchone() #is the string
+    splitFavs = oldFavs.split('::').remove(entry)
+    newFavs = '::'.join(splitFavs)
+    cmd = "UPDATE UserInfo SET fav%s='%s' WHERE UserID = %d;"%(favType, newFavs, userID)
+    c.execute(cmd)
+    db.commit()
+    db.close()
+    

@@ -36,3 +36,9 @@ jonalfD -- 2016-12-04 14:32
 - content.py skeleton set up
 - toolbar set up, base template set up
 ==============================
+
+==============================
+ joelY -- 2016-12-06 14:55
+
+- Favorites functions added to database
+==============================
