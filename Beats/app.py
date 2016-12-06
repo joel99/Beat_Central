@@ -13,26 +13,20 @@ def root():
         #add processing
         feedDict = content.getFeed()
         return render_template('home.html', isLoggedIn = True, newsFeed = feedDict)
-        
+    
 @app.route('/toolbar/', methods = ['POST'])
 def toolBar():
     d = request.form
-    if isLoggedIn():
-        if (d["type"] == "Log Out"):
-            logout()
-            return redirect(url_for('root'))
-        if (d["type"] == "Settings"):
-            return redirect(url_for('settings'))
-    else:
-        if (d["type"] == "Log In"):
+    if (d["type"] == "Log In"):
             return redirect(url_for('root'))
     return redirect(url_for('home'))
 
-@app.route('/logout/', methods = ['POST', 'GET'])
+@app.route('/logout/')
 def outdir():
+    if isLoggedIn():
 	logout()
-	return redirect(url_for('root'))
-    
+    return redirect(url_for('root'))
+
 @app.route("/login/", methods = ['POST'])
 def login():
     d = request.form
