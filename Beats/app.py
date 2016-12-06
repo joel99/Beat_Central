@@ -28,6 +28,10 @@ def toolBar():
             return redirect(url_for('root'))
     return redirect(url_for('home'))
 
+@app.route('/logout/', methods = ['POST', 'GET'])
+def outdir():
+	logout()
+	return redirect(url_for('root'))
     
 @app.route("/login/", methods = ['POST'])
 def login():
