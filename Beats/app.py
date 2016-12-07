@@ -81,9 +81,10 @@ def searchResult():
     matchedAlbums = content.getAlbums(q) #(album, artist, isFavorited, albumID)
     return render_template('search.html', isLoggedIn = str(isLoggedIn()), songList = matchedSongs, artistList = matchedArtists, albumList = matchedAlbums)
 
-
+@app.route('/result/<lastFmID>_<spotifyID>')
 def resultPage():
-    return None
+    res = content.resultGen(lastFmID, spotifyID)
+    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res)
 
 
 @app.route('/favorite/', methods = ['POST'])

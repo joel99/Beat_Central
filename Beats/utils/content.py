@@ -35,5 +35,6 @@ def getFavorites(typeOf, userID):
         ret.add(spotify.search(typeOf, entry[1])
     return ret	
 '''
-def getDetails():
-    return None
+def contentGen(lastFmID, spotifyID):
+    lastContent = lastFm.getContent(lastFmID)
+    spotContent = spotify.getContent(spotifyID)

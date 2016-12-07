@@ -4,7 +4,6 @@ import sqlite3
 def isValidAccountInfo(uN, hP):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
-
     cmd = "SELECT * FROM AccountInfo WHERE username = '%s' AND hashedPass = '%s';"%(uN, hP)
     sel = c.execute(cmd).fetchone()
     db.close()
@@ -81,6 +80,7 @@ def isFavorited(userID, favType, entry, entryID):
     c = db.cursor()
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     favs = c.execute(cmd).fetchone() #is the string
+    db.close()
     return entry + entryID in favs.split('::')
     
 #does not have isFavorited check
@@ -120,8 +120,59 @@ def getFavorites(userID, favType):
     #first get the relevant info
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     sel = c.execute(cmd).fetchone() #the relevant string
+    db.close()
     strDict = sel.split('::')
     ret = []
     for entry in strDict:
         ret.add(entry.split('~~'))
     return ret
+
+
+#following
+def follow(fromID, followID):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    #first get the relevant info
+    cmd = "SELECT following FROM UserInfo WHERE UserID = %d;"%(fromID)
+    sel = c.execute(cmd).fetchone() #the relevant string
+    if len(sel) > 0:
+        sel = sel + "::" + followID
+    else:
+        sel = followID
+    cmd = "UPDATE UserInfo SET following='%s' WHERE UserID = %d;"%(sel, fromID)
+    c.execute(cmd)
+    db.commit()
+    db.close()
+        
+def rmFollow(fromID, followID):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    #first get the relevant info
+    cmd = "SELECT following FROM UserInfo WHERE UserID = %d;"%(fromID)
+    sel = c.execute(cmd).fetchone() #the relevant string
+    split = sel.split('::').remove(followID)
+    newList = '::'.join(split)
+    cmd = "UPDATE UserInfo SET following='%s' WHERE UserID = %d;"%(sel, fromID)
+    c.execute(cmd)
+    db.commit()
+    db.close()
+
+
+def getFollowing(fromID):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    #first get the relevant info
+    cmd = "SELECT following FROM UserInfo WHERE UserID = %d;"%(fromID)
+    sel = c.execute(cmd).fetchone() #the relevant string
+    db.close()
+    return sel
+
+
+def isFollowing(fromID, followID):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    #first get the relevant info
+    cmd = "SELECT following FROM UserInfo WHERE UserID = %d;"%(fromID)
+    sel = c.execute(cmd).fetchone() #the relevant string
+    db.close()
+    return followID in sel.split('::') 
