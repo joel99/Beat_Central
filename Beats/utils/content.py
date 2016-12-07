@@ -17,23 +17,23 @@ def getAlbums(q):
     return searchResults
 
 def toggleFavorite(userID, favType, entry, entryID):
-    if (database.isFavorited(userID, favType, entry, entryID):
+    if database.isFavorited(userID, favType, entry, entryID):
         database.rmFavorite(userID, favType, entry, entryID)
     else:
         database.addFavorite(userID, favType, entry, entryID)
-
+'''
 def getFavorites(typeOf, userID):
         #first retrieve database entry, then pass to spotify
     if typeOf == 0:
         favList = database.getFavorites(userID, 'Songs')
-    else if typeOf == 1:
+    elif typeOf == 1:
         favList = database.getFavorites(userID, 'Artists')
     else:
         favList = database.getFavorites(userID, 'Albums')
     ret = []    
     for entry in favList:
         ret.add(spotify.search(typeOf, entry[1])
-    return ret
-    
+    return ret	
+'''
 def getDetails():
     return None
