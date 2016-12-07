@@ -1,39 +1,57 @@
-#Module Utils, File rest.py
-#API backend functions
-#Team Bass Drop - Beat Central
+# Module Utils, File rest.py
+# API backend functions
+# Team Bass Drop - Beat Central
 
-import urllib2
-import urllib
+from urllib2 import Request, urlopen, URLError, HTTPError
+from urllib import urlencode
 
-#Maybe should use add_header() instead of headers?
 
-def get(url, query = None, headers = None):
-    response = getR(url, query, headers)
-    result = {"url":response.geturl(), "headers":response.info(),
-              "status":response.getcode(), "body":response.read()}
-    return result
+def get(url, query=None, headers=None):
+    try:
+        req = Request(url + format_query(query), headers)
+        response = urlopen(req)
+    except HTTPError as e:
+        print "ERROR: rest.get() on " + url + " resulted in HTTPError/"
+        print "\t " + explain_error(e)
+        return {"type": "HTTPError", "object": e}
+    except URLError as e:
+        print "ERROR: rest.get() on " + url + " resulted in URLError/"
+        print "\t " + explain_error(e)
+        return {"type": "URLError", "object": e}
+    else:
+        return {"type": "response", "object": response}
 
-def getR(url, query = None, headers = None):
-    req = urllib2.Request(url + format_query(query), headers)
-    response = urllib2.urlopen(req)
-    return response
 
-def post(url, body, query = None, headers = None):
-    response = postR(url, body, query, headers)
-    result = {"url":response.geturl(), "headers":response.info(),
-              "status":response.getcode(), "body":response.read()}
-    return result
+def post(url, body, query=None, headers=None):
+    try:
+        if headers != None:
+            req = Request(url + format_query(query), urlencode(body), headers)
+        else:
+            req = Request(url + format_query(query), urlencode(body))
+        response = urlopen(req)
+    except HTTPError as e:
+        print "ERROR: rest.post() on " + url + " resulted in HTTPError/"
+        print "\t " + explain_error(e)
+        return {"type": "HTTPError", "object": e}
+    except URLError as e:
+        print "ERROR: rest.post() on " + url + " resulted in URLError/"
+        print "\t " + explain_error(e)
+        return {"type": "URLError", "object": e}
+    else:
+        return {"type": "response", "object": response}
 
-def postR(url, body, query = None, headers = None):
-    data = urllib.urlencode(body)
-    req = urllib2.Request(url + format_query(query), data, headers)
-    response = urllib2.urlopen(req)
-    return response
 
-#How do None types work in python?
 def format_query(query):
-    q_string = ""
-    for key in query:
-        q_string += key + query[key] + "&"
-        result = q_string[:-1].replace(" ", "+")
-        return result
+    if query != None:
+        return "?" + urlencode(query)
+    else:
+        return ""
+
+
+def explain_error(e):
+    err_str = ""
+    if hasattr(e, 'code'):
+        err_str += "Code: " + str(e.code) + "; "
+    if hasattr(e, 'reason'):
+        err_str += "Reason: " + str(e.reason) + ";"
+    return err_str
