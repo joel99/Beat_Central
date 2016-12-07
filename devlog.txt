@@ -42,3 +42,10 @@ jonalfD -- 2016-12-04 14:32
 
 - Favorites functions added to database
 ==============================
+
+==============================
+ joelY -- 2016-12-06 21:25
+
+- Database favorite functions modified to store ID (will modify to remove extraneous info)
+- Content.py now pipes backend to frontend
+==============================

@@ -70,18 +70,41 @@ def changePass():
     return redirect(url_for('root'))
 
 #User Interaction
-#for favorites display, give template tuples, entity and whether or not it's favorited
+#for favorites display, template gets tuples
 @app.route('/search/', methods = ['GET'])
 def searchResult():
-    query = request.args.get("query")
-    #todo, process strings from REST APIs, get favorite data, 
-    return render_template('search.html', isLoggedIn = str(isLoggedIn()))
+    q = request.args.get("query")
+    #todo, process strings from REST APIs, get favorite data,
+    #the following are formatted tuple dictionaries
+    matchedSongs = content.getSongs(q) #(song, artist, isFavorited, songID)
+    matchedArtists = content.getArtists(q) #(artist, isFavorited, artistID)
+    matchedAlbums = content.getAlbums(q) #(album, artist, isFavorited, albumID)
+    return render_template('search.html', isLoggedIn = str(isLoggedIn()), songList = matchedSongs, artistList = matchedArtists, albumList = matchedAlbums)
 
 
 def resultPage():
     return None
 
 
+@app.route('/favorite/', methods = ['POST'])
+def favorite(favType, entry, entryID):
+    if (favType == 0): #song
+        content.toggleFavorite(getUserID(), 'Songs', entry, entryID)
+    if (favType == 1): #artist
+        content.toggleFavorite(getUserID(), 'Artists', entry, entryID)
+    if (favType == 2): #album
+        content.toggleFavorite(getUserID(), 'Albums', entry, entryID)
+
+@app.route('/favorites/')
+def favorites():
+    if (not isLoggedIn()):
+        return redirect(url_for('root'))
+    userID = getUserID()
+    songs = content.getFavorites(0, userID)
+    artists = content.getFavorites(1, userID)
+    albums = content.getFavorites(2, userID)
+    return render_template('favorites.html', isLoggedIn = str(isLoggedIn()), favSongs = songs, favArtists = artists, favAlbums = albums)
+    
 #HELPERS-----------------------------------------------------------------------
 
 #Login Helpers

@@ -76,22 +76,23 @@ def changePass(userID, newPass):
 #favType expects 'Songs', 'Artists', or 'Albums'
 #entries are delimited by '::'
 
-def isFavorited(userID, favType, entry):
+def isFavorited(userID, favType, entry, entryID):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     favs = c.execute(cmd).fetchone() #is the string
-    return entry in favs.split('::')
+    return entry + entryID in favs.split('::')
     
 #does not have isFavorited check
-def addFavorite(userID, favType, entry):
+def addFavorite(userID, favType, entry, entryID):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
     #first get the relevant info
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     oldFavs = c.execute(cmd).fetchone() #is the string
+    entry = entry + '~~' + entryID
     if len(oldFavs) > 0:
-        newFavs = oldFavs + "::" + entry
+        newFavs = oldFavs + "::" + entry 
     else:
         newFavs = entry
     cmd = "UPDATE UserInfo SET fav%s='%s' WHERE UserID = %d;"%(favType, newFavs, userID)
@@ -99,17 +100,28 @@ def addFavorite(userID, favType, entry):
     db.commit()
     db.close()
 
-
-def rmFavorite(userID, favType, entry):
+def rmFavorite(userID, favType, entry, entryID):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
     #first get the relevant info
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     oldFavs = c.execute(cmd).fetchone() #is the string
-    splitFavs = oldFavs.split('::').remove(entry)
+    splitFavs = oldFavs.split('::').remove(entry + entryID)
     newFavs = '::'.join(splitFavs)
     cmd = "UPDATE UserInfo SET fav%s='%s' WHERE UserID = %d;"%(favType, newFavs, userID)
     c.execute(cmd)
     db.commit()
     db.close()
-    
+
+#returns list of tuples
+def getFavorites(userID, favType):
+    db = sqlite3.connect("data/main.db")
+    c = db.cursor()
+    #first get the relevant info
+    cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
+    sel = c.execute(cmd).fetchone() #the relevant string
+    strDict = sel.split('::')
+    ret = []
+    for entry in strDict:
+        ret.add(entry.split('~~'))
+    return ret
