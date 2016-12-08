@@ -77,7 +77,7 @@ def songSearch(name, artist=None, page=1):
         return ("Error", [])
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        print build_search_API_error(res_dict, "song", name, artist)
+        print build_API_error(res_dict, "songSearch", name, artist)
         # returning (status, result); error already sent to console
         return ("Error", [])
     results_list = []
@@ -139,7 +139,7 @@ def albumSearch(name, page=1):
         return ("Error", [])
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        print build_search_API_error(res_dict, "album", name)
+        print build_API_error(res_dict, "albumSearch", name)
         # returning (status, result); error already sent to console
         return ("Error", [])
     results_list = []
@@ -201,7 +201,7 @@ def artistSearch(name, page=1):
         return ("Error", [])
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        print build_search_API_error(res_dict, "artist", name)
+        print build_API_error(res_dict, "artistSearch", name)
         # returning (status, result); error already sent to console
         return ("Error", [])
     results_list = []
@@ -210,12 +210,64 @@ def artistSearch(name, page=1):
     return ("OK", results_list)
 
 
+def getSongInfoByID(mbid):
+    return "placeholder"
+
+
+def getSongInfoByName(name, artist):
+    return "placeholder"
+
+
+def getAlbumInfoByID(mbid):
+    return "placeholder"
+
+
+def getAlbumInfoByName(name, artist):
+    return "placeholder
+
+
+def getArtistInfoByID(mbid):
+    return getArtistInfo(mbid)
+
+
+def getArtistInfoByName(name):
+    return getArtistInfo(None, name)
+
+
+def getSongInfo(mbid=None, name=None, artist=None):
+    return "placeholder"
+
+
+def getAlbumInfo(mbid=None, name=None, artist=None):
+    return "placeholder"
+
+
+def getArtistInfo(mbid=None, name=None):
+    query_d = {"method": "artist.getinfo", "artist": name, "api_key": API_KEY,
+               "format": "json"}
+    # User-agent header should be default
+    res = rest.get(API_ROOT, query_d)
+    if res["type"] == "HTTPError" or res["type"] == "URLError":
+            # returning (status, result); error already sent to console
+        return ("Error", [])
+    res_dict = json.loads(res["object"].read())
+    if "error" in res_dict:
+        print build_API_error(res_dict, "getArtistInfo", name)
+        # returning (status, result); error already sent to console
+        return ("Error", [])
+    return ("OK", build_artist_info_dict(res_dict["artist"])
+
+
+deg build_artist_info_dict(res_dict):
+    return "placeholder"
+
+
 # ======HELPER FUNCTIONS====== #
 
 
 def build_track_album_dict(item):
-    item_dict = build_basic_res_dict(item)
-    item_dict["artist"] = item["artist"]
+    item_dict=build_basic_res_dict(item)
+    item_dict["artist"]=item["artist"]
     return item_dict
 
 
@@ -224,30 +276,30 @@ def build_artist_dict(artist):
 
 
 def build_basic_res_dict(item):
-    item_dict = {
+    item_dict={
         "name": item["name"], "mbid": item["mbid"]
     }
     if "image" in item:
-        img_url = ""
-        img_size = ""
+        img_url=""
+        img_size=""
         for img_dict in item["image"]:
             if img_dict["size"] == "small" and img_size != "large":
-                img_url = img_dict["#text"]
-                img_size = img_dict["size"]
+                img_url=img_dict["#text"]
+                img_size=img_dict["size"]
             if img_dict["size"] == "large" or img_dict["size"] == "medium":
-                img_url = img_dict["#text"]
-                img_size = img_dict["size"]
+                img_url=img_dict["#text"]
+                img_size=img_dict["size"]
             if img_dict["size"] == "medium":
                 break
             # Do not use extralarge images; they waste page load times
         if img_url != "":
-            item_dict["image"] = img_url
-            item_dict["image_size"] = img_size
+            item_dict["image"]=img_url
+            item_dict["image_size"]=img_size
     return item_dict
 
 
-def build_search_API_error(res_dict, search_type, name, artist=None):
-    err_str = "ERROR: lastFm." + search_type + "Search() for '" + name + "'"
+def build_API_error(res_dict, function, name, artist=None):
+    err_str="ERROR: lastFm." + function + "() for '" + name + "'"
     if artist is not None:
         err_str += ", by '" + artist + "'"
     err_str += " resulted in an API error/\n"

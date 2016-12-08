@@ -1,0 +1,175 @@
+{
+    'artist': {
+        'bio': {
+            'content': 'The Chainsmokers are a disc jockey/producer duo consisting of Andrew Taggart (born in 1990) and Alex Pall (born in 1985) from New York City, United States. \n\nAndrew Taggart was born in Portland, ME. He was a member of the Love Team. Alex Pall was born in 1985 in New York City. Pall studied art at New York University, while Taggart studied at Syracuse University. In 2012, they came together as a DJ duo. The Chainsmokers formed as electronic dance music producer DJs in 2012 under the management company 4AM in New York City. In 2012, they collaborated with Indian actress and recording artist Priyanka Chopra for the song "Erase", which was released on November 19, 2012, on Beatport. On December 4, 2012, the song was released to iTunes Store for digital download. \n\nTheir first promoted single, "Selfie", was released on January 28, 2014, on Dim Mak Records. The duo have since shared nights with dj:s like Calvin Harris, Avicii, Bingo Players, Swanky Tunes, Arty, Pete Tong, R3Hab, Wolfgang Gartner, Max Vangeli, Alesso, Steve Aoki, Chuckie and W&W. They have seen support musically from Afrojack, Tiesto, Adventure Club, W&W, Michael Brun, 3LAU, Dubvision, Matisse & Sadko, Martin Solveig, Jewelz, Adrian Luxe, Felix Cartel, and Basto. <a href="https://www.last.fm/music/The+Chainsmokers">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.',
+            'links': {
+                'link': {
+                    '#text': '',
+                    'href': 'https://last.fm/music/The+Chainsmokers/+wiki',
+                    'rel': 'original'
+                }
+            },
+            'published': '13 Nov 2013, 05:27',
+            'summary': 'The Chainsmokers are a disc jockey/producer duo consisting of Andrew Taggart (born in 1990) and Alex Pall (born in 1985) from New York City, United States. \n\nAndrew Taggart was born in Portland, ME. He was a member of the Love Team. Alex Pall was born in 1985 in New York City. Pall studied art at New York University, while Taggart studied at Syracuse University. In 2012, they came together as a DJ duo. The Chainsmokers formed as electronic dance music producer DJs in 2012 under the management company 4AM in New York City. <a href="https://www.last.fm/music/The+Chainsmokers">Read more on Last.fm</a>'
+        },
+        'image': [{
+            '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/355761b8ad134edbce6808ceca31d190.png',
+            'size': 'small'
+        }, {
+            '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/355761b8ad134edbce6808ceca31d190.png',
+            'size': 'medium'
+        }, {
+            '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/355761b8ad134edbce6808ceca31d190.png',
+            'size': 'large'
+        }, {
+            '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/355761b8ad134edbce6808ceca31d190.png',
+            'size': 'extralarge'
+        }, {
+            '#text': 'https://lastfm-img2.akamaized.net/i/u/355761b8ad134edbce6808ceca31d190.png',
+            'size': 'mega'
+        }, {
+            '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/355761b8ad134edbce6808ceca31d190.png',
+            'size': ''
+        }],
+        'mbid': '91a81925-92f9-4fc9-b897-93cf01226282',
+        'name': 'The Chainsmokers',
+        'ontour': '1',
+        'similar': {
+            'artist': [{
+                'image': [{
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/fb00964860eaf9b054bdc8c2a7ebc50d.png',
+                    'size': 'small'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/fb00964860eaf9b054bdc8c2a7ebc50d.png',
+                    'size': 'medium'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/fb00964860eaf9b054bdc8c2a7ebc50d.png',
+                    'size': 'large'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/fb00964860eaf9b054bdc8c2a7ebc50d.png',
+                    'size': 'extralarge'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/fb00964860eaf9b054bdc8c2a7ebc50d.png',
+                    'size': 'mega'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/fb00964860eaf9b054bdc8c2a7ebc50d.png',
+                    'size': ''
+                }],
+                'name': 'Jonas Blue',
+                'url': 'https://www.last.fm/music/Jonas+Blue'
+            }, {
+                'image': [{
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/97e9ecdf4d7407df41a9ec2c11701ea9.png',
+                    'size': 'small'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/97e9ecdf4d7407df41a9ec2c11701ea9.png',
+                    'size': 'medium'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/97e9ecdf4d7407df41a9ec2c11701ea9.png',
+                    'size': 'large'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/97e9ecdf4d7407df41a9ec2c11701ea9.png',
+                    'size': 'extralarge'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/97e9ecdf4d7407df41a9ec2c11701ea9.png',
+                    'size': 'mega'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/97e9ecdf4d7407df41a9ec2c11701ea9.png',
+                    'size': ''
+                }],
+                'name': 'Daya',
+                'url': 'https://www.last.fm/music/Daya'
+            }, {
+                'image': [{
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/693b934eed2ac07b284626ca6911e224.png',
+                    'size': 'small'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/693b934eed2ac07b284626ca6911e224.png',
+                    'size': 'medium'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/693b934eed2ac07b284626ca6911e224.png',
+                    'size': 'large'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/693b934eed2ac07b284626ca6911e224.png',
+                    'size': 'extralarge'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/693b934eed2ac07b284626ca6911e224.png',
+                    'size': 'mega'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/693b934eed2ac07b284626ca6911e224.png',
+                    'size': ''
+                }],
+                'name': 'Martin Garrix',
+                'url': 'https://www.last.fm/music/Martin+Garrix'
+            }, {
+                'image': [{
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/4f294eae0bc2a7ed67825ab9c79e02ba.png',
+                    'size': 'small'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/4f294eae0bc2a7ed67825ab9c79e02ba.png',
+                    'size': 'medium'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/4f294eae0bc2a7ed67825ab9c79e02ba.png',
+                    'size': 'large'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/4f294eae0bc2a7ed67825ab9c79e02ba.png',
+                    'size': 'extralarge'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/4f294eae0bc2a7ed67825ab9c79e02ba.png',
+                    'size': 'mega'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/4f294eae0bc2a7ed67825ab9c79e02ba.png',
+                    'size': ''
+                }],
+                'name': 'Cheat Codes',
+                'url': 'https://www.last.fm/music/Cheat+Codes'
+            }, {
+                'image': [{
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/2094cc9a68d46a2a3149d9cba184f4cd.png',
+                    'size': 'small'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/2094cc9a68d46a2a3149d9cba184f4cd.png',
+                    'size': 'medium'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/2094cc9a68d46a2a3149d9cba184f4cd.png',
+                    'size': 'large'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/2094cc9a68d46a2a3149d9cba184f4cd.png',
+                    'size': 'extralarge'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/2094cc9a68d46a2a3149d9cba184f4cd.png',
+                    'size': 'mega'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/2094cc9a68d46a2a3149d9cba184f4cd.png',
+                    'size': ''
+                }],
+                'name': 'Hailee Steinfeld',
+                'url': 'https://www.last.fm/music/Hailee+Steinfeld'
+            }]
+        },
+        'stats': {
+            'listeners': '477326',
+            'playcount': '6898436'
+        },
+        'streamable': '0',
+        'tags': {
+            'tag': [{
+                'name': 'electronic',
+                'url': 'https://www.last.fm/tag/electronic'
+            }, {
+                'name': 'House',
+                'url': 'https://www.last.fm/tag/House'
+            }, {
+                'name': 'pop',
+                'url': 'https://www.last.fm/tag/pop'
+            }, {
+                'name': 'electro house',
+                'url': 'https://www.last.fm/tag/electro+house'
+            }, {
+                'name': 'american',
+                'url': 'https://www.last.fm/tag/american'
+            }]
+        },
+        'url': 'https://www.last.fm/music/The+Chainsmokers'
+    }
+}
