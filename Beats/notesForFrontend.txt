@@ -1,0 +1,8 @@
+Formatting Notes for Anthony:
+
+Favorites page:
+	  Receives entry type, name, and url (the concatenated ids)
+	  In format: [type, [(<name>, <url>)]]
+	  0: Song
+	  1: Artist
+	  2: Album

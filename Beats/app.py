@@ -76,10 +76,21 @@ def searchResult():
     q = request.args.get("query")
     #todo, process strings from REST APIs, get favorite data,
     #the following are formatted tuple dictionaries
-    matchedSongs = content.getSongs(q) #(song, artist, isFavorited, songID)
-    matchedArtists = content.getArtists(q) #(artist, isFavorited, artistID)
-    matchedAlbums = content.getAlbums(q) #(album, artist, isFavorited, albumID)
-    return render_template('search.html', isLoggedIn = str(isLoggedIn()), songList = matchedSongs, artistList = matchedArtists, albumList = matchedAlbums)
+    searchRet = []
+    for i in range(0, 3):
+        searchRet.append(content.getSearch(q, i))
+    stats = []
+    for i in range(0, 3):
+        if searchRet[i] == "Error":
+            searchRet[i] = None
+            stats.append("Error")
+        else if searchRet[i] == "Empty":
+            searchRet[i] = None
+            stats.append("Empty")
+        else:
+            stats.append("good")
+    
+    return render_template('search.html', isLoggedIn = str(isLoggedIn()), songList = searchRet[0], artistList = searchRet[1], albumList = searchRet[2], songStatus = stats[0], artistStat = stats[1], albumStats = stats[2])
 
 @app.route('/result/<lastFmID>_<spotifyID>')
 def resultPage():

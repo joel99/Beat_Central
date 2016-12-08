@@ -3,38 +3,40 @@ import database, spotify, lastFm
 def getFollowFeed():
     return None
 
-def getSongs(q):
-    searchResults = spotify.songSearch(q)
-    #songSearch will give me a list of tuples
-    return searchResults
-
-def getArtists(q):
-    searchResults = spotify.artistSearch(q)
-    return searchResults
-
-def getAlbums(q):
-    searchResults = spotify.albumSearch(q)
-    return searchResults
-
-def toggleFavorite(userID, favType, entry, entryID):
-    if database.isFavorited(userID, favType, entry, entryID):
-        database.rmFavorite(userID, favType, entry, entryID)
+def getSearch(q, searchType):
+    if searchType == 0:
+        searchResults = lastFm.songSearch(q)
+    if searchType == 1:
+        searchResults = lastFm.artistSearch(q)
+    if searchType == 2:
+        searchResults = lastFm.albumSearch(q)
+        
+    if (searchResults[0] == "Error"):
+        return "Error"
     else:
-        database.addFavorite(userID, favType, entry, entryID)
-'''
+        if len(searchResults[1]) == 0:
+            return "Empty"
+        else:
+            return searchResults[1]
+
+#urls serve as ids
+def toggleFavorite(userID, favType, entry, entryUrl):
+    if database.isFavorited(userID, favType, entry, entryUrl):
+        database.rmFavorite(userID, favType, entry, entryUrl)
+    else:
+        database.addFavorite(userID, favType, entry, entryUrl)
+
 def getFavorites(typeOf, userID):
-        #first retrieve database entry, then pass to spotify
+    #first retrieve database entry, then pass to spotify
     if typeOf == 0:
-        favList = database.getFavorites(userID, 'Songs')
+        favList = [0, database.getFavorites(userID, 'Songs')]
     elif typeOf == 1:
-        favList = database.getFavorites(userID, 'Artists')
+        favList = [1, database.getFavorites(userID, 'Artists')]
     else:
-        favList = database.getFavorites(userID, 'Albums')
-    ret = []    
-    for entry in favList:
-        ret.add(spotify.search(typeOf, entry[1])
-    return ret	
-'''
+        favList = [2, database.getFavorites(userID, 'Albums')]
+
+    return favList	
+
 def contentGen(lastFmID, spotifyID):
     lastContent = lastFm.getContent(lastFmID)
     spotContent = spotify.getContent(spotifyID)
