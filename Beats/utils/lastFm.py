@@ -82,7 +82,8 @@ def songSearch(name, artist=None, page=1):
         return ("Error", [])
     results_list = []
     for track in res_dict["results"]["trackmatches"]["track"]:
-        results_list.append(build_track_album_dict(track))
+        if track["mbid"] != "":
+            results_list.append(build_track_album_dict(track))
     return ("OK", results_list)
 
 
@@ -144,7 +145,8 @@ def albumSearch(name, page=1):
         return ("Error", [])
     results_list = []
     for album in res_dict["results"]["albummatches"]["album"]:
-        results_list.append(build_track_album_dict(album))
+        if album["mbid"] != "":
+            results_list.append(build_track_album_dict(album))
     return ("OK", results_list)
 
 
@@ -206,7 +208,8 @@ def artistSearch(name, page=1):
         return ("Error", [])
     results_list = []
     for artist in res_dict["results"]["artistmatches"]["artist"]:
-        results_list.append(build_artist_dict(artist))
+        if artist["mbid"] != "":
+            results_list.append(build_artist_dict(artist))
     return ("OK", results_list)
 
 
@@ -223,7 +226,7 @@ def getAlbumInfoByID(mbid):
 
 
 def getAlbumInfoByName(name, artist):
-    return "placeholder
+    return "placeholder"
 
 
 def getArtistInfoByID(mbid):
@@ -255,10 +258,10 @@ def getArtistInfo(mbid=None, name=None):
         print build_API_error(res_dict, "getArtistInfo", name)
         # returning (status, result); error already sent to console
         return ("Error", [])
-    return ("OK", build_artist_info_dict(res_dict["artist"])
+    return ("OK", build_artist_info_dict(res_dict["artist"]))
 
 
-deg build_artist_info_dict(res_dict):
+def build_artist_info_dict(res_dict):
     return "placeholder"
 
 
