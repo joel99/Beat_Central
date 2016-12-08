@@ -258,11 +258,12 @@ def getArtistInfo(mbid=None, name=None):
         print build_API_error(res_dict, "getArtistInfo", name)
         # returning (status, result); error already sent to console
         return ("Error", [])
+    return res_dict
     return ("OK", build_artist_info_dict(res_dict["artist"]))
 
 
 def build_artist_info_dict(res_dict):
-    return "placeholder"
+    info_dict = {}
 
 
 # ======HELPER FUNCTIONS====== #
