@@ -1,5 +1,5 @@
 # Please use an identifiable User-Agent header on all requests.
-#^^^This implies that I need to keep the urrlib2 header identifier,
+# ^^^This implies that I need to keep the urrlib2 header identifier,
 #   and use add_header for our header/auth purposes?
 # Use MKotlik last.fm account for API account
 
@@ -15,10 +15,13 @@ API_ROOT = "http://ws.audioscrobbler.com/2.0/"
 #   list of track dictionaries, sorted by relevance
 # If empty list, no matches
 # By default, top 30 matches are returned
-def songSearch(name, artist=None):
+# Use page, which defaults to 1, to get more results in increments of 30
+
+
+def songSearch(name, artist=None, page=1):
     query_d = {"method": "track.search", "track": name, "api_key": API_KEY,
-               "format": "json"}
-    if artist != None:
+               "format": "json", "page": page}
+    if artist is not None:
         query_d["artist"] = artist
     res = rest.get(API_ROOT, query_d)  # User-agent header should be default
     if res["type"] == "HTTPError" or res["type"] == "URLError":
@@ -27,7 +30,7 @@ def songSearch(name, artist=None):
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
         err_str = "ERROR: lastFm.songSearch() for '" + name + "'"
-        if artist != None:
+        if artist is not None:
             err_str += ", by '" + artist + "'"
         err_str += " resulted in an API error/\n"
         err_str += "\t Code: " + str(res_dict["error"])
@@ -35,20 +38,43 @@ def songSearch(name, artist=None):
         print err_str
         # returning (status, result); error already sent to console
         return ("Error", [])
-    result_list = []
+    results_list = []
     for track in res_dict["results"]["trackmatches"]["track"]:
-        result_list.append(build_track_dict(track))
-    return ("OK", result_list)
+        results_list.append(build_track_album_dict(track))
+    return ("OK", results_list)
 
 
-def build_track_dict(track):
-    track_dict = {
-        "name": track["name"], "artist": track["artist"], "mbid": track["mbid"]
+def albumSearch(name, page=1):
+    query_d = {"method": "album.search", "album": name, "api_key": API_KEY,
+               "format": "json", "page": page, "limit": 30}
+    # User-agent header should be default
+    res = rest.get(API_ROOT, query_d)
+    if res["type"] == "HTTPError" or res["type"] == "URLError":
+            # returning (status, result); error already sent to console
+        return ("Error", [])
+    res_dict = json.loads(res["object"].read())
+    if "error" in res_dict:
+        err_str = "ERROR: lastFm.albumSearch() for '" + name + "'"
+        err_str += " resulted in an API error/\n"
+        err_str += "\t Code: " + str(res_dict["error"])
+        err_str += "; Message: " + res_dict["message"]
+        print err_str
+        # returning (status, result); error already sent to console
+        return ("Error", [])
+    results_list = []
+    for album in res_dict["results"]["albummatches"]["album"]:
+        results_list.append(build_track_album_dict(album))
+    return ("OK", results_list)
+
+
+def build_track_album_dict(item):
+    item_dict = {
+        "name": item["name"], "artist": item["artist"], "mbid": item["mbid"]
     }
-    if "image" in track:
+    if "image" in item:
         img_url = ""
         img_size = ""
-        for img_dict in track["image"]:
+        for img_dict in item["image"]:
             if img_dict["size"] == "small" and img_size != "large":
                 img_url = img_dict["#text"]
                 img_size = img_dict["size"]
@@ -59,6 +85,6 @@ def build_track_dict(track):
                 break
             # Do not use extralarge images; they waste page load times
         if img_url != "":
-            track_dict["image"] = img_url
-            track_dict["image_size"] = img_size
-    return track_dict
+            item_dict["image"] = img_url
+            item_dict["image_size"] = img_size
+    return item_dict
