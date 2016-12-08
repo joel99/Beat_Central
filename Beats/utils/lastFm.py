@@ -20,7 +20,7 @@ API_ROOT = "http://ws.audioscrobbler.com/2.0/"
 
 def songSearch(name, artist=None, page=1):
     query_d = {"method": "track.search", "track": name, "api_key": API_KEY,
-               "format": "json", "page": page}
+               "format": "json", "page": page, "limit": 30}
     if artist is not None:
         query_d["artist"] = artist
     res = rest.get(API_ROOT, query_d)  # User-agent header should be default
@@ -29,13 +29,7 @@ def songSearch(name, artist=None, page=1):
         return ("Error", [])
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        err_str = "ERROR: lastFm.songSearch() for '" + name + "'"
-        if artist is not None:
-            err_str += ", by '" + artist + "'"
-        err_str += " resulted in an API error/\n"
-        err_str += "\t Code: " + str(res_dict["error"])
-        err_str += "; Message: " + res_dict["message"]
-        print err_str
+        print build_search_API_error(res_dict, "song", name, artist)
         # returning (status, result); error already sent to console
         return ("Error", [])
     results_list = []
@@ -54,11 +48,7 @@ def albumSearch(name, page=1):
         return ("Error", [])
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        err_str = "ERROR: lastFm.albumSearch() for '" + name + "'"
-        err_str += " resulted in an API error/\n"
-        err_str += "\t Code: " + str(res_dict["error"])
-        err_str += "; Message: " + res_dict["message"]
-        print err_str
+        print build_search_API_error(res_dict, "album", name)
         # returning (status, result); error already sent to console
         return ("Error", [])
     results_list = []
@@ -67,9 +57,38 @@ def albumSearch(name, page=1):
     return ("OK", results_list)
 
 
+def artistSearch(name, page=1):
+    query_d = {"method": "artist.search", "artist": name, "api_key": API_KEY,
+               "format": "json", "page": page, "limit": 30}
+    # User-agent header should be default
+    res = rest.get(API_ROOT, query_d)
+    if res["type"] == "HTTPError" or res["type"] == "URLError":
+            # returning (status, result); error already sent to console
+        return ("Error", [])
+    res_dict = json.loads(res["object"].read())
+    if "error" in res_dict:
+        print build_search_API_error(res_dict, "artist", name)
+        # returning (status, result); error already sent to console
+        return ("Error", [])
+    results_list = []
+    for artist in res_dict["results"]["artistmatches"]["artist"]:
+        results_list.append(build_artist_dict(artist))
+    return ("OK", results_list)
+
+
 def build_track_album_dict(item):
+    item_dict = build_basic_res_dict(item)
+    item_dict["artist"] = item["artist"]
+    return item_dict
+
+
+def build_artist_dict(artist):
+    return build_basic_res_dict(artist)
+
+
+def build_basic_res_dict(item):
     item_dict = {
-        "name": item["name"], "artist": item["artist"], "mbid": item["mbid"]
+        "name": item["name"], "mbid": item["mbid"]
     }
     if "image" in item:
         img_url = ""
@@ -88,3 +107,13 @@ def build_track_album_dict(item):
             item_dict["image"] = img_url
             item_dict["image_size"] = img_size
     return item_dict
+
+
+def build_search_API_error(res_dict, search_type, name, artist=None):
+    err_str = "ERROR: lastFm." + search_type + "Search() for '" + name + "'"
+    if artist is not None:
+        err_str += ", by '" + artist + "'"
+    err_str += " resulted in an API error/\n"
+    err_str += "\t Code: " + str(res_dict["error"])
+    err_str += "; Message: " + res_dict["message"]
+    return err_str
