@@ -1,3 +1,8 @@
+
+# Module Utils, File lastFm.py
+# last.fm API functions
+# Team Bass Drop - Beat Central
+
 # Please use an identifiable User-Agent header on all requests.
 # ^^^This implies that I need to keep the urrlib2 header identifier,
 #   and use add_header for our header/auth purposes?
@@ -10,15 +15,58 @@ import json
 API_KEY = "42becc236bc618eb1ba223b81fa9e4f8"
 API_ROOT = "http://ws.audioscrobbler.com/2.0/"
 
-# Search for a track by track name. Returns track matches sorted by relevance.
-# Returns a tuple, 1st element is status, second element is a
-#   list of track dictionaries, sorted by relevance
-# If empty list, no matches
-# By default, top 30 matches are returned
-# Use page, which defaults to 1, to get more results in increments of 30
+
+# ======MAIN METHODS====== #
 
 
 def songSearch(name, artist=None, page=1):
+    """Search for a track by track name.
+
+    Employs the lastFm track.search endpoint to provide a formatted list of
+    tracks related to the query, ordered by relevance. Returns a complex
+    object.
+
+    Args:
+        name (str): name of the track
+        artist (str, optional): if song artist is provided, will be used in
+            search. Defaults to None.
+        page (int, optional): page of results to be retrieved, in increments of
+            30 results. Defaults to 1.
+
+    Returns:
+        tuple: a complex object, whose first element is a status set to 'Error'
+            or 'OK', depending on the success of the operation.
+
+        The second element of the tuple is a list of dictionaries, where each
+        dictionary corresponds to one result. If the list is empty, no results
+        were found for the given query.
+
+        Each dictionary contains the 'name', 'artist', and 'mbid' properties.
+        If the result included images, an image url will be given as 'image',
+        and the image size will be provided as 'image_size'. Images can be of
+        size 'medium', 'large', or 'small', in that order of preference. If no
+        image was found, the 'image' key will not be present in
+        the result dict.
+
+        If an error occurs during the request, the status (first) element of
+        the returned tuple will be "Error", and a detailed error message will
+        be logged in the console.
+
+        The returned object structure is as follows::
+
+            ("<OK | ERROR>", [
+                    {
+                        "name":"<TRACK NAME>", "artist":"<ARTIST NAME>",
+                        "mbid":"<MBID>", "image":"<IMAGE URL>",
+                        "image_size":"<IMAGE SIZE>"
+                    },
+                    {
+                        "name":"<TRACK NAME>", "artist":"<ARTIST NAME>",
+                        "mbid":"<MBID>"
+                    }
+                ]
+            )
+    """
     query_d = {"method": "track.search", "track": name, "api_key": API_KEY,
                "format": "json", "page": page, "limit": 30}
     if artist is not None:
@@ -39,6 +87,49 @@ def songSearch(name, artist=None, page=1):
 
 
 def albumSearch(name, page=1):
+    """Search for an album by album name.
+
+    Employs the lastFm album.search endpoint to provide a formatted list of
+    albums related to the query, ordered by relevance. Returns a complex
+    object.
+
+    Args:
+        name (str): name of the album
+        page (int, optional): page of results to be retrieved, in increments of
+            30 results. Defaults to 1.
+
+    Returns:
+        tuple: a complex object, whose first element is a status set to 'Error'
+            or 'OK', depending on the success of the operation.
+
+        The second element of the tuple is a list of dictionaries, where each
+        dictionary corresponds to one result. If the list is empty, no results
+        were found for the given query.
+
+        Each dictionary contains the 'name' and 'mbid' properties.
+        If the result included images, an image url will be given as 'image',
+        and the image size will be provided as 'image_size'. Images can be of
+        size 'medium', 'large', or 'small', in that order of preference. If no
+        image was found, the 'image' key will not be present in
+        the result dict.
+
+        If an error occurs during the request, the status (first) element of
+        the returned tuple will be "Error", and a detailed error message will
+        be logged in the console.
+
+        The returned object structure is as follows::
+
+            ("<OK | ERROR>", [
+                    {
+                        "name":"<ALBUM NAME>", "mbid":"<MBID>",
+                        "image":"<IMAGE URL>", "image_size":"<IMAGE SIZE>"
+                    },
+                    {
+                        "name":"<ALBUM NAME>", "mbid":"<MBID>"
+                    }
+                ]
+            )
+    """
     query_d = {"method": "album.search", "album": name, "api_key": API_KEY,
                "format": "json", "page": page, "limit": 30}
     # User-agent header should be default
@@ -58,6 +149,49 @@ def albumSearch(name, page=1):
 
 
 def artistSearch(name, page=1):
+    """Search for an artist by artist name.
+
+    Employs the lastFm artist.search endpoint to provide a formatted list of
+    artists related to the query, ordered by relevance. Returns a complex
+    object.
+
+    Args:
+        name (str): name of the artist
+        page (int, optional): page of results to be retrieved, in increments of
+            30 results. Defaults to 1.
+
+    Returns:
+        tuple: a complex object, whose first element is a status set to 'Error'
+            or 'OK', depending on the success of the operation.
+
+        The second element of the tuple is a list of dictionaries, where each
+        dictionary corresponds to one result. If the list is empty, no results
+        were found for the given query.
+
+        Each dictionary contains the 'name' and 'mbid' properties.
+        If the result included images, an image url will be given as 'image',
+        and the image size will be provided as 'image_size'. Images can be of
+        size 'medium', 'large', or 'small', in that order of preference. If no
+        image was found, the 'image' key will not be present in
+        the result dict.
+
+        If an error occurs during the request, the status (first) element of
+        the returned tuple will be "Error", and a detailed error message will
+        be logged in the console.
+
+        The returned object structure is as follows::
+
+            ("<OK | ERROR>", [
+                    {
+                        "name":"<ARTIST NAME>", "mbid":"<MBID>",
+                        "image":"<IMAGE URL>", "image_size":"<IMAGE SIZE>"
+                    },
+                    {
+                        "name":"<ARTIST NAME>", "mbid":"<MBID>"
+                    }
+                ]
+            )
+    """
     query_d = {"method": "artist.search", "artist": name, "api_key": API_KEY,
                "format": "json", "page": page, "limit": 30}
     # User-agent header should be default
@@ -74,6 +208,9 @@ def artistSearch(name, page=1):
     for artist in res_dict["results"]["artistmatches"]["artist"]:
         results_list.append(build_artist_dict(artist))
     return ("OK", results_list)
+
+
+# ======HELPER FUNCTIONS====== #
 
 
 def build_track_album_dict(item):
