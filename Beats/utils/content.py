@@ -40,3 +40,4 @@ def getFavorites(typeOf, userID):
 def contentGen(lastFmID, spotifyID):
     lastContent = lastFm.getContent(lastFmID)
     spotContent = spotify.getContent(spotifyID)
+    return [lastContent, spotContent]
