@@ -26,9 +26,9 @@ def registerAccountInfo(uN, hP):
     cmd = "SELECT userID FROM AccountInfo ORDER BY userID DESC;"
     sel = c.execute(cmd).fetchone()
     if sel == None: #non-null
-        userID = sel[0] + 1
-    else:
         userID = 1
+    else:
+        userID = sel[0] + 1
         
     addAT = "INSERT INTO AccountInfo VALUES ('%s','%s',%d);"%(uN,hP,userID)
     c.execute(addAT)
