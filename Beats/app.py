@@ -51,9 +51,9 @@ def register():
 @app.route('/search/', methods = ['GET'])
 def search():
     query =  request.args.get("query")
-    matchedSongs = content.songSearch(query)
-    matchedArtists = content.artistSearch(query)
-    matchedAlbums = content.albumSearch(query)
+    matchedSongs = content.getSearch(query, 0)
+    matchedArtists = content.getSearch(query, 1)
+    matchedAlbums = content.getSearch(query, 2)
     return render_template('search.html', songs = matchedSongs, artists = matchedArtists, albums = matchedAlbums)
 
 
@@ -99,11 +99,12 @@ def searchResult():
 @app.route('/result/<lastFmID>_<spotifyID>')
 def resultPage():
     res = content.resultGen(lastFmID, spotifyID)
-    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res)
+    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = str(utils.isFavorited(lastFmID, spotifyID)))
 
 
 @app.route('/favorite/', methods = ['POST'])
 def favorite(favType, entry, entryID):
+    d = request.form
     if (favType == 0): #song
         content.toggleFavorite(getUserID(), 'Songs', entry, entryID)
     if (favType == 1): #artist
