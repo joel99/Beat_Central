@@ -96,10 +96,10 @@ def searchResult():
     
     return render_template('search.html', isLoggedIn = str(isLoggedIn()), songList = searchRet[0], artistList = searchRet[1], albumList = searchRet[2], songStatus = stats[0], artistStat = stats[1], albumStats = stats[2])
 
-@app.route('/result/<lastFmID>_<spotifyID>')
+@app.route('/result/<typeOf>/<lastFmID>_<spotifyID>')
 def resultPage():
     res = content.resultGen(lastFmID, spotifyID)
-    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = str(utils.isFavorited(lastFmID, spotifyID)))
+    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = str(utils.isFavorited(getUserID(), typeOf, lastFmID, spotifyID)))
 
 
 @app.route('/favorite/', methods = ['POST'])

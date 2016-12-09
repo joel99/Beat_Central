@@ -6,3 +6,15 @@ Favorites page:
 	  0: Song
 	  1: Artist
 	  2: Album
+
+Favoriting toggle:
+	   POST
+	   favType: 0, 1, 2 for song, artist, album
+	   entry: name
+	   entryID: lastFm + spotify ids, concatenated with '_'
+	   oldUrl: the old url
+
+Result page format:
+       /result/<typeOf>/<lastFmID>_<spotifyID>
+       <typeOf> should be Song, Album, Artist
+
