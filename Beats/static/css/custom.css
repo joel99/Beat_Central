@@ -4,8 +4,11 @@
 }
 
 body{
-	color: white;
 	background: lightgrey;
+}
+
+.container{
+	color: white;
 	/*background-image: url("/static/back.jpg");*/
 }
 

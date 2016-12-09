@@ -17,7 +17,7 @@ def root():
  
 @app.route('/test/', methods = ['POST','GET'])
 def test():
-	return render_template('results.html', isLoggedIn = True, num = 2)
+	return render_template('results.html', isLoggedIn = True, example="example")
 	
 @app.route('/toolbar/', methods = ['POST'])
 def toolBar():
