@@ -242,12 +242,13 @@ def getSongInfo(mbid=None, name=None, artist=None):
 
 
 def getAlbumInfo(mbid=None, name=None, artist=None):
-    query_d = {"method": "artist.getinfo", "api_key": API_KEY,
+    query_d = {"method": "album.getinfo", "api_key": API_KEY,
                "format": "json"}
     if mbid is not None:
         query_d["mbid"] = mbid
-    elif name is not None:
-        query_d["artist"] = name
+    elif name is not None and artist is not None:
+        query_d["album"] = name
+        query_d["artist"] = artist
     # User-agent header should be default
     res = rest.get(API_ROOT, query_d)
     if res["type"] == "HTTPError" or res["type"] == "URLError":
@@ -255,12 +256,13 @@ def getAlbumInfo(mbid=None, name=None, artist=None):
         return ("Error", {})
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        print build_API_error(res_dict, "getAlbumInfo", mbid, name, artist)
+        print build_API_error(res_dict, "getAlbumInfo", mbid=mbid, name=name)
         # returning (status, result); error already sent to console
         return ("Error", {})
-    if res_dict["artist"]["name"] == "None":
+    return res_dict
+    if res_dict["album"]["name"] == "None":
         return ("OK", {})
-    return ("OK", build_artist_info_dict(res_dict["artist"]))
+    return ("OK", build_album_info_dict(res_dict["album"]))
 
 
 def getArtistInfo(mbid=None, name=None):
@@ -291,6 +293,40 @@ def build_artist_info_dict(artist):
         "listeners": artist["stats"]["listeners"],
         "playcount": artist["stats"]["playcount"]
     }
+    if "bio" in artist:
+        info_dict["bio"] = artist["bio"]["content"]
+        info_dict["summary"] = artist["bio"]["summary"]
+    if "image" in artist:
+        img_tuple = get_info_image(artist)
+        if img_tuple[0] != "":
+            # aka size is extralarge, large, or medium only
+            (info_dict["image"], info_dict["image_size"]) = img_tuple
+    if "similar" in artist:
+        info_dict["similar"] = []
+        for sim_art in artist["similar"]["artist"]:
+            entry = {"name": sim_art["name"]}
+            if "image" in sim_art:
+                img_tuple = get_info_image(artist)
+                if img_tuple[0] != "":
+                    # aka size is extralarge, large, or medium only
+                    (entry["image"], entry["image_size"]) = img_tuple
+            info_dict["similar"].append(entry)
+    if "tags" in artist:
+        # NOTE, this is not the same as topTags, which we might need as well
+        info_dict["tags"] = []
+        for tag in artist["tags"]["tag"]:
+            info_dict["tags"].append(tag["name"])
+    return info_dict
+
+def build_album_info_dict(album):
+    info_dict = {
+        "name": album["name"],
+        "listeners": artist["stats"]["listeners"],
+        "playcount": artist["stats"]["playcount"]
+    }
+    if "mbid" in album:
+        # DO NOT ASSUME mbid will always be here
+        info_dict["mbid"] = album["mbid"]
     if "bio" in artist:
         info_dict["bio"] = artist["bio"]["content"]
         info_dict["summary"] = artist["bio"]["summary"]
