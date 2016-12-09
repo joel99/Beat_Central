@@ -105,12 +105,16 @@ def resultPage():
 @app.route('/favorite/', methods = ['POST'])
 def favorite(favType, entry, entryID):
     d = request.form
+    entry = d["entry"]
+    entryID = d["entryID"]
+    favType = d["favType"]
     if (favType == 0): #song
         content.toggleFavorite(getUserID(), 'Songs', entry, entryID)
     if (favType == 1): #artist
         content.toggleFavorite(getUserID(), 'Artists', entry, entryID)
     if (favType == 2): #album
         content.toggleFavorite(getUserID(), 'Albums', entry, entryID)
+    return redirect(d["oldUrl"])
 
 @app.route('/favorites/')
 def favorites():
