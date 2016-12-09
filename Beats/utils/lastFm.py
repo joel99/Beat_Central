@@ -77,7 +77,7 @@ def songSearch(name, artist=None, page=1):
         return ("Error", [])
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        print build_API_error(res_dict, "songSearch", name, artist)
+        print build_API_error(res_dict, "songSearch", name=name, artist=artist)
         # returning (status, result); error already sent to console
         return ("Error", [])
     results_list = []
@@ -140,7 +140,7 @@ def albumSearch(name, page=1):
         return ("Error", [])
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        print build_API_error(res_dict, "albumSearch", name)
+        print build_API_error(res_dict, "albumSearch", name=name)
         # returning (status, result); error already sent to console
         return ("Error", [])
     results_list = []
@@ -203,7 +203,7 @@ def artistSearch(name, page=1):
         return ("Error", [])
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        print build_API_error(res_dict, "artistSearch", name)
+        print build_API_error(res_dict, "artistSearch", name=name)
         # returning (status, result); error already sent to console
         return ("Error", [])
     results_list = []
@@ -242,12 +242,12 @@ def getSongInfo(mbid=None, name=None, artist=None):
 
 
 def getAlbumInfo(mbid=None, name=None, artist=None):
-    return "placeholder"
-
-
-def getArtistInfo(mbid=None, name=None):
-    query_d = {"method": "artist.getinfo", "artist": name, "api_key": API_KEY,
+    query_d = {"method": "artist.getinfo", "api_key": API_KEY,
                "format": "json"}
+    if mbid is not None:
+        query_d["mbid"] = mbid
+    elif name is not None:
+        query_d["artist"] = name
     # User-agent header should be default
     res = rest.get(API_ROOT, query_d)
     if res["type"] == "HTTPError" or res["type"] == "URLError":
@@ -255,7 +255,29 @@ def getArtistInfo(mbid=None, name=None):
         return ("Error", {})
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
-        print build_API_error(res_dict, "getArtistInfo", name)
+        print build_API_error(res_dict, "getAlbumInfo", mbid, name, artist)
+        # returning (status, result); error already sent to console
+        return ("Error", {})
+    if res_dict["artist"]["name"] == "None":
+        return ("OK", {})
+    return ("OK", build_artist_info_dict(res_dict["artist"]))
+
+
+def getArtistInfo(mbid=None, name=None):
+    query_d = {"method": "artist.getinfo", "api_key": API_KEY,
+               "format": "json"}
+    if mbid is not None:
+        query_d["mbid"] = mbid
+    elif name is not None:
+        query_d["artist"] = name
+    # User-agent header should be default
+    res = rest.get(API_ROOT, query_d)
+    if res["type"] == "HTTPError" or res["type"] == "URLError":
+            # returning (status, result); error already sent to console
+        return ("Error", {})
+    res_dict = json.loads(res["object"].read())
+    if "error" in res_dict:
+        print build_API_error(res_dict, "getArtistInfo", mbid=mbid, name=name)
         # returning (status, result); error already sent to console
         return ("Error", {})
     if res_dict["artist"]["name"] == "None":
@@ -344,8 +366,12 @@ def build_basic_res_dict(item):
     return item_dict
 
 
-def build_API_error(res_dict, function, name, artist=None):
-    err_str = "ERROR: lastFm." + function + "() for '" + name + "'"
+def build_API_error(res_dict, function, mbid=None, name=None, artist=None):
+    err_str = "ERROR: lastFm." + function + "() for '"
+    if mbid is not None:
+        err_str += "mbid: " + mbid + "'"
+    else:
+        err_str += name + "'"
     if artist is not None:
         err_str += ", by '" + artist + "'"
     err_str += " resulted in an API error/\n"
