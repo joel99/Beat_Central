@@ -14,7 +14,11 @@ def root():
         #add processing
         feedDict = content.getFeed()
         return render_template('home.html', isLoggedIn = True, newsFeed = feedDict)
-    
+ 
+@app.route('/test/', methods = ['POST','GET'])
+def test():
+	return render_template('results.html', isLoggedIn = True, num = 2)
+	
 @app.route('/toolbar/', methods = ['POST'])
 def toolBar():
     d = request.form
@@ -84,7 +88,7 @@ def searchResult():
         if searchRet[i] == "Error":
             searchRet[i] = None
             stats.append("Error")
-        else if searchRet[i] == "Empty":
+        elif searchRet[i] == "Empty":
             searchRet[i] = None
             stats.append("Empty")
         else:

@@ -1,0 +1,54 @@
+.log{
+	min-width: 250px;
+	padding: 15px 15px 0;
+}
+
+body{
+	color: white;
+	background: lightgrey;
+	/*background-image: url("/static/back.jpg");*/
+}
+
+.jumbotron{
+	background: none;
+}
+
+.entry{
+	animation: fade 5s;
+}
+
+.navbar{
+	float: none;
+	text-align: center;
+	margin: 100px 200px 0px 300px;
+	background: none;
+	border: none;
+}
+
+.nav.navbar-nav li a{
+    color: white;
+	border-bottom: 2px solid transparent;
+}
+
+.nav.navbar-nav li a:hover{
+	color: white;
+	border-bottom: 2px solid yellow;
+}
+
+#oo{
+	color: white;
+	animation-name: yes;
+	animation-duration: 10s;
+	animation-delay: 3s;
+}
+
+@keyframes yes{
+	0% {color: white;}
+	50% {color: yellow;}
+	100% {color: white;}
+}
+
+@keyframes fade{
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}

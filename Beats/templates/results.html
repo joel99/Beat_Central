@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- need to for loop the list and apply the specific css to each--> 
+
+<div class = "container">
+  <h1>Search Results for {{search}}</h1>
+  <hr>
+	<h2> Artists</h2>
+	<hr>
+	<div class ="row entry">
+		<div class="picture col-md-3">
+			<img class="img-responsive img-circle" src="http://placehold.it/350x150">
+		</div>
+		<div class="col-md-10">
+			<h3>Artist's Name</h3>
+		</div>
+	</div>
+	<hr>
+	<h2>Songs</h2>
+	<div class="row entry">
+		<div class="picture col-md-3">
+			<img class="img-responsive img-circle" src="http://placehold.it/350x150">
+		</div>
+		<div class="col-md-10">
+		  <h3>Song's Name</h3>
+		</div>
+	</li>
+ </ul>
+</div>
+
+{% endblock %}
