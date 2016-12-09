@@ -13,8 +13,9 @@ body{
 	background: none;
 }
 
-.entry{
-	animation: fade 5s;
+.picture{
+	border-right: 2px solid white;
+	margin-right: 15px;
 }
 
 .navbar{
