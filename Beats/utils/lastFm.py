@@ -214,19 +214,19 @@ def artistSearch(name, page=1):
 
 
 def getSongInfoByID(mbid):
-    return "placeholder"
+    return getSongInfo(mbid)
 
 
 def getSongInfoByName(name, artist):
-    return "placeholder"
+    return getSongInfo(None, name, artist)
 
 
 def getAlbumInfoByID(mbid):
-    return "placeholder"
+    return getAlbumInfo(mbid)
 
 
 def getAlbumInfoByName(name, artist):
-    return "placeholder"
+    return getAlbumInfo(None, name, artist)
 
 
 def getArtistInfoByID(mbid):
@@ -252,26 +252,68 @@ def getArtistInfo(mbid=None, name=None):
     res = rest.get(API_ROOT, query_d)
     if res["type"] == "HTTPError" or res["type"] == "URLError":
             # returning (status, result); error already sent to console
-        return ("Error", [])
+        return ("Error", {})
     res_dict = json.loads(res["object"].read())
     if "error" in res_dict:
         print build_API_error(res_dict, "getArtistInfo", name)
         # returning (status, result); error already sent to console
-        return ("Error", [])
-    return res_dict
+        return ("Error", {})
+    if res_dict["artist"]["name"] == "None":
+        return ("OK", {})
     return ("OK", build_artist_info_dict(res_dict["artist"]))
 
 
-def build_artist_info_dict(res_dict):
-    info_dict = {}
+def build_artist_info_dict(artist):
+    info_dict = {
+        "name": artist["name"], "mbid": artist["mbid"],
+        "listeners": artist["stats"]["listeners"],
+        "playcount": artist["stats"]["playcount"]
+    }
+    if "bio" in artist:
+        info_dict["bio"] = artist["bio"]["content"]
+        info_dict["summary"] = artist["bio"]["summary"]
+    if "image" in artist:
+        img_tuple = get_info_image(artist)
+        if img_tuple[0] != "":
+            # aka size is extralarge, large, or medium only
+            (info_dict["image"], info_dict["image_size"]) = img_tuple
+    if "similar" in artist:
+        info_dict["similar"] = []
+        for sim_art in artist["similar"]["artist"]:
+            entry = {"name": sim_art["name"]}
+            if "image" in sim_art:
+                img_tuple = get_info_image(artist)
+                if img_tuple[0] != "":
+                    # aka size is extralarge, large, or medium only
+                    (entry["image"], entry["image_size"]) = img_tuple
+            info_dict["similar"].append(entry)
+    if "tags" in artist:
+        # NOTE, this is not the same as topTags, which we might need as well
+        info_dict["tags"] = []
+        for tag in artist["tags"]["tag"]:
+            info_dict["tags"].append(tag["name"])
+    return info_dict
 
+
+def get_info_image(item):
+    img_url, img_size = "", ""
+    for img_dict in item["image"]:
+        if img_dict["size"] == "medium" and img_size != "large":
+            img_url = img_dict["#text"]
+            img_size = img_dict["size"]
+        if img_dict["size"] == "large" or img_dict["size"] == "extralarge":
+            img_url = img_dict["#text"]
+            img_size = img_dict["size"]
+        if img_dict["size"] == "extralarge":
+            break
+    return (img_url, img_size)
 
 # ======HELPER FUNCTIONS====== #
 
 
 def build_track_album_dict(item):
-    item_dict=build_basic_res_dict(item)
-    item_dict["artist"]=item["artist"]
+    item_dict = build_basic_res_dict(item)
+    item_dict["artist"] = item["artist"]
     return item_dict
 
 
@@ -280,30 +322,30 @@ def build_artist_dict(artist):
 
 
 def build_basic_res_dict(item):
-    item_dict={
+    item_dict = {
         "name": item["name"], "mbid": item["mbid"]
     }
     if "image" in item:
-        img_url=""
-        img_size=""
+        img_url = ""
+        img_size = ""
         for img_dict in item["image"]:
             if img_dict["size"] == "small" and img_size != "large":
-                img_url=img_dict["#text"]
-                img_size=img_dict["size"]
+                img_url = img_dict["#text"]
+                img_size = img_dict["size"]
             if img_dict["size"] == "large" or img_dict["size"] == "medium":
-                img_url=img_dict["#text"]
-                img_size=img_dict["size"]
+                img_url = img_dict["#text"]
+                img_size = img_dict["size"]
             if img_dict["size"] == "medium":
                 break
             # Do not use extralarge images; they waste page load times
         if img_url != "":
-            item_dict["image"]=img_url
-            item_dict["image_size"]=img_size
+            item_dict["image"] = img_url
+            item_dict["image_size"] = img_size
     return item_dict
 
 
 def build_API_error(res_dict, function, name, artist=None):
-    err_str="ERROR: lastFm." + function + "() for '" + name + "'"
+    err_str = "ERROR: lastFm." + function + "() for '" + name + "'"
     if artist is not None:
         err_str += ", by '" + artist + "'"
     err_str += " resulted in an API error/\n"
