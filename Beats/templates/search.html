@@ -5,21 +5,24 @@
 <!-- need to for loop the list and apply the specific css to each--> 
 
 <div class = "container">
-  <h2>Search Results for {{example}}</h2>
+  <h2>Search Results for {{query}}</h2>
 	<br>
-  	<h2>Artists</h2>
-	<hr>
-	<div class ="row entry" style="animation:fade 5s;">
-		<div class="picture col-md-3">
-			<img class="img-responsive img-circle" src="http://placehold.it/350x150">
+  	<center><h2>Artists</h2></center>
+	<hr width="200px">
+	{% for i in artists %}
+	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
+		<div class="picture col-md-1">
+			<img class="img-responsive img-circle" src="{{i['image']}}">
 		</div>
 		<div class="col-md-8">
-			<h3>Artist's Name</h3>
+			<h3>{{i['name']}}</h3>
 		</div>
 	</div>
 	<br>
-	<h2>Songs</h2>
-	<hr>
+	{% endfor %}
+	<br>
+	<center><h2>Songs</h2></center>
+	<hr width="200px">
 	<div class="row" style="animation: fade 10s;">
 		<div class="picture col-md-3">
 			<img class="img-responsive img-circle" src="http://placehold.it/350x150">
