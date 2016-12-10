@@ -21,17 +21,33 @@
 	<br>
 	{% endfor %}
 	<br>
-	<center><h2>Songs</h2></center>
+	<center><h2>Albums</h2></center>
 	<hr width="200px">
-	<div class="row" style="animation: fade 10s;">
-		<div class="picture col-md-3">
-			<img class="img-responsive img-circle" src="http://placehold.it/350x150">
+	{% for i in albums %}
+	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
+		<div class="picture col-md-1">
+			<img class="img-responsive img-circle" src="{{i['image']}}">
 		</div>
 		<div class="col-md-8">
-		  <h3>Song's Name</h3>
+			<h3>{{i['name']}}</h3>
 		</div>
-	</li>
- </ul>
+	</div>
+	<br>
+	{% endfor %}
+	<br>
+	<center><h2>Songs<h2></center>
+	<hr width="200px">
+	{% for i in songs %}
+	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
+		<div class="picture col-md-1">
+			<img class="img-responsive img-circle" src="{{i['image']}}">
+		</div>
+		<div class="col-md-8">
+			<h3>{{i['name']}}</h3>
+		</div>
+	</div>
+	<br>
+	{% endfor %}
 </div>
 
 {% endblock %}

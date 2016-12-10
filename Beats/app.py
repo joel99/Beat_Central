@@ -54,7 +54,7 @@ def search():
     matchedSongs = content.getSearch(query, 0)
     matchedArtists = content.getSearch(query, 1)
     matchedAlbums = content.getSearch(query, 2)
-    return render_template('search.html', songs = matchedSongs, artists = matchedArtists, albums = matchedAlbums)
+    return render_template('search.html', songs = matchedSongs, artists = matchedArtists, albums = matchedAlbums, query = query)
 
 
 @app.route('/settings/')

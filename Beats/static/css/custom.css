@@ -22,9 +22,6 @@ body{
 }
 
 .navbar{
-	float: none;
-	text-align: center;
-	margin: 100px 200px 0px 300px;
 	background: none;
 	border: none;
 }
