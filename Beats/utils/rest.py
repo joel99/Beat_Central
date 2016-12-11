@@ -25,7 +25,7 @@ def get(url, query=None, headers=None):
 
 def post(url, body, query=None, headers=None):
     try:
-        if headers != None:
+        if headers is not None:
             req = Request(url + format_query(query), urlencode(body), headers)
         else:
             req = Request(url + format_query(query), urlencode(body))
@@ -43,7 +43,7 @@ def post(url, body, query=None, headers=None):
 
 
 def format_query(query):
-    if query != None:
+    if query is not None:
         return "?" + urlencode(query)
     else:
         return ""

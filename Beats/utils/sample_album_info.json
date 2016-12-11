@@ -1,0 +1,231 @@
+{
+    u 'album': {
+        u 'artist': u 'Muse',
+        u 'image': [{
+            u '#text': u 'https://lastfm-img2.akamaized.net/i/u/34s/ce35df0967db24313c859832608646a6.png',
+            u 'size': u 'small'
+        }, {
+            u '#text': u 'https://lastfm-img2.akamaized.net/i/u/64s/ce35df0967db24313c859832608646a6.png',
+            u 'size': u 'medium'
+        }, {
+            u '#text': u 'https://lastfm-img2.akamaized.net/i/u/174s/ce35df0967db24313c859832608646a6.png',
+            u 'size': u 'large'
+        }, {
+            u '#text': u 'https://lastfm-img2.akamaized.net/i/u/300x300/ce35df0967db24313c859832608646a6.png',
+            u 'size': u 'extralarge'
+        }, {
+            u '#text': u 'https://lastfm-img2.akamaized.net/i/u/ce35df0967db24313c859832608646a6.png',
+            u 'size': u 'mega'
+        }, {
+            u '#text': u 'https://lastfm-img2.akamaized.net/i/u/arQ/ce35df0967db24313c859832608646a6.png',
+            u 'size': u ''
+        }],
+        u 'listeners': u '1060608',
+        u 'mbid': u '6a5d9eac-0fa6-3170-9cff-a1cb832fd8cd',
+        u 'name': u 'The Resistance',
+        u 'playcount': u '40683328',
+        u 'tags': {
+            u 'tag': [{
+                u 'name': u 'albums I own',
+                u 'url': u 'https://www.last.fm/tag/albums+I+own'
+            }, {
+                u 'name': u 'alternative rock',
+                u 'url': u 'https://www.last.fm/tag/alternative+rock'
+            }, {
+                u 'name': u 'Progressive rock',
+                u 'url': u 'https://www.last.fm/tag/Progressive+rock'
+            }, {
+                u 'name': u 'alternative',
+                u 'url': u 'https://www.last.fm/tag/alternative'
+            }, {
+                u 'name': u '2009',
+                u 'url': u 'https://www.last.fm/tag/2009'
+            }]
+        },
+        u 'tracks': {
+            u 'track': [{
+                u '@attr': {
+                    u 'rank': u '1'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '216',
+                u 'name': u 'Uprising',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/Uprising'
+            }, {
+                u '@attr': {
+                    u 'rank': u '2'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '346',
+                u 'name': u 'Resistance',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/Resistance'
+            }, {
+                u '@attr': {
+                    u 'rank': u '3'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '236',
+                u 'name': u 'Undisclosed Desires',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/Undisclosed+Desires'
+            }, {
+                u '@attr': {
+                    u 'rank': u '4'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '347',
+                u 'name': u 'United States of Eurasia (+Collateral Damage)',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/United+States+of+Eurasia+(%252BCollateral+Damage)'
+            }, {
+                u '@attr': {
+                    u 'rank': u '5'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '253',
+                u 'name': u 'Guiding Light',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/Guiding+Light'
+            }, {
+                u '@attr': {
+                    u 'rank': u '6'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '415',
+                u 'name': u 'Unnatural Selection',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/Unnatural+Selection'
+            }, {
+                u '@attr': {
+                    u 'rank': u '7'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '246',
+                u 'name': u 'MK Ultra',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/MK+Ultra'
+            }, {
+                u '@attr': {
+                    u 'rank': u '8'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '338',
+                u 'name': u "I Belong To You [+Mon Coeur S'Ouvre A Ta Voix]",
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/I+Belong+To+You+%5B%252BMon+Coeur+S%27Ouvre+A+Ta+Voix%5D'
+            }, {
+                u '@attr': {
+                    u 'rank': u '9'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '258',
+                u 'name': u 'Exogenesis: Symphony, Part 1: Overture',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/Exogenesis:+Symphony,+Part+1:+Overture'
+            }, {
+                u '@attr': {
+                    u 'rank': u '10'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '236',
+                u 'name': u 'Exogenesis: Symphony, Part 2: Cross\u2010Pollination',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/Exogenesis:+Symphony,+Part+2:+Cross%E2%80%90Pollination'
+            }, {
+                u '@attr': {
+                    u 'rank': u '11'
+                },
+                u 'artist': {
+                    u 'mbid': u 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                    u 'name': u 'Muse',
+                    u 'url': u 'https://www.last.fm/music/Muse'
+                },
+                u 'duration': u '277',
+                u 'name': u 'Exogenesis: Symphony Part 3 [Redemption]',
+                u 'streamable': {
+                    u '#text': u '0',
+                    u 'fulltrack': u '0'
+                },
+                u 'url': u 'https://www.last.fm/music/Muse/_/Exogenesis:+Symphony+Part+3+%5BRedemption%5D'
+            }]
+        },
+        u 'url': u 'https://www.last.fm/music/Muse/The+Resistance',
+        u 'wiki': {
+            u 'content': u 'The Resistance is the fifth studio album by English alternative rock band Muse, released in Europe on 14 September 2009, and in North America on 15 September 2009. Many consider this album to be the final installment in a \'trilogy\' of apocalypse themed albums by Muse (Absolution, Black Holes and Revelations and now The Resistance). The main themes of the album are political corruption, alien invasion, New World Order conspiracies and more conventional love songs. The album is heavily influenced by George Orwell\'s \'1984\', as is made clear by the title of the song \'United States Of Eurasia\' and the love story theme and the mention of \'Thought Police\' in the lyrics of the track \'Resistance\' . On 13 February 2011 the album was awarded a Grammy for \'Best Rock Album\'.\n\nThe album covers a large range of genres, as with most Muse albums, including electro-pop, pop-rock, prog-rock and operatic-rock. The main genre of the album is rock, however there are some electronic influences and strong classical influences. The song \'I Belong To You\' also contains an adapted excerpt of a french opera.\n\nOn its release, it topped the album charts in 19 countries. It also debuted at number 3 on the Billboard 200 chart, selling 128,000 copies.[13] It also beat its predecessor, Black Holes and Revelations, in relative album sales in its debut week in the UK selling approximately 148,000 copies and Worldwide with 479,000 copies sold. Critics were mostly positive about the album, with much of the praise directed towards its ambition and classical music influences, with most critics directing high praise to \'Exogenesis: Symphony\'. The album was produced by the band and mixed by Mark Stent.[14][15] The album\'s first single, "Uprising", was released on 7 September 2009, with the album\'s second single, "Undisclosed Desires" released on 16 November 2009. "Resistance" was released as the third single from the album on 22 February 2010, and although it failed to match the success of its predecessors, the single reached number one in the UK Rock Chart and became the second Top 40 hit from the album in the UK Singles Chart. Exogenesis: Symphony was released as a limited edition EP in the United States on 19 April 2010. Muse promoted the album by performing the songs in a number of live appearances, including their promotional tour The Resistance Tour. Worldwide, the album has sold over 2.8 million copies. <a href="http://www.last.fm/music/Muse/The+Resistance">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.',
+            u 'published': u '17 Jul 2009, 13:57',
+            u 'summary': u 'The Resistance is the fifth studio album by English alternative rock band Muse, released in Europe on 14 September 2009, and in North America on 15 September 2009. Many consider this album to be the final installment in a \'trilogy\' of apocalypse themed albums by Muse (Absolution, Black Holes and Revelations and now The Resistance). The main themes of the album are political corruption, alien invasion, New World Order conspiracies and more conventional love songs. <a href="http://www.last.fm/music/Muse/The+Resistance">Read more on Last.fm</a>.'
+        }
+    }
+}

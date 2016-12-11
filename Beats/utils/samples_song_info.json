@@ -1,0 +1,107 @@
+{
+    samples,
+    [{
+        'track': {
+            'artist': {
+                'mbid': '91a81925-92f9-4fc9-b897-93cf01226282',
+                'name': 'The Chainsmokers',
+                'url': 'https://www.last.fm/music/The+Chainsmokers'
+            },
+            'duration': '244000',
+            'listeners': '136366',
+            'name': 'Closer',
+            'playcount': '992684',
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'toptags': {
+                'tag': [{
+                    'name': '2016',
+                    'url': 'https://www.last.fm/tag/2016'
+                }, {
+                    'name': 'electronic',
+                    'url': 'https://www.last.fm/tag/electronic'
+                }, {
+                    'name': 'fav',
+                    'url': 'https://www.last.fm/tag/fav'
+                }, {
+                    'name': 'bomba',
+                    'url': 'https://www.last.fm/tag/bomba'
+                }, {
+                    'name': 'us number one',
+                    'url': 'https://www.last.fm/tag/us+number+one'
+                }]
+            },
+            'url': 'https://www.last.fm/music/The+Chainsmokers/_/Closer',
+            'wiki': {
+                'content': '\u201cCloser\u201d is a millennial romance anthem that celebrates youth and heartbreak. It features vocals from singer-songwriter Halsey and Chainsmokers member Andrew Taggart, marking the first time The Chainsmokers sung on their own track and the first time they\u2019ve collaborated with Halsey.\n\nOn Twitter, the duo wrote about the meaning of the song:\n\nThis song is dedicated to anyone that hooked up with their EX and right after remember all the reasons why they broke up.\n\n\u201cCloser\u201d was premiered at Bonnaroo by Halsey and she later confirmed its release on her Instagram:\n\n"You heard it tonight. My phone hasn\u2019t had service in 2 days, bonnaroo but I\u2019m pullin enough juice to inform you that @thechainsmokers and I have a BRAND NEW SONG coming out soon. Those of you who got to witness it tonight, lucky you. \U0001f48b\U0001f48b\U0001f48b"\n\nHalsey also teased the track on Twitter a week prior to the release by releasing a cropped version of the photo featured the single\u2019s art. <a href="http://www.last.fm/music/The+Chainsmokers/_/Closer">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.',
+                'published': '31 Jul 2016, 22:59',
+                'summary': '\u201cCloser\u201d is a millennial romance anthem that celebrates youth and heartbreak. It features vocals from singer-songwriter Halsey and Chainsmokers member Andrew Taggart, marking the first time The Chainsmokers sung on their own track and the first time they\u2019ve collaborated with Halsey.\n\nOn Twitter, the duo wrote about the meaning of the song:\n\nThis song is dedicated to anyone that hooked up with their EX and right after remember all the reasons why they broke up. <a href="http://www.last.fm/music/The+Chainsmokers/_/Closer">Read more on Last.fm</a>.'
+            }
+        }
+    }, {
+        'track': {
+            'album': {
+                '@attr': {
+                    'position': '3'
+                },
+                'artist': 'Muse',
+                'image': [{
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/6f640d26c679da73f205958ab5cda943.png',
+                    'size': 'small'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/6f640d26c679da73f205958ab5cda943.png',
+                    'size': 'medium'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/6f640d26c679da73f205958ab5cda943.png',
+                    'size': 'large'
+                }, {
+                    '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/6f640d26c679da73f205958ab5cda943.png',
+                    'size': 'extralarge'
+                }],
+                'mbid': 'aefcf53b-5980-463b-b03d-a6c8da6a9432',
+                'title': 'Black Holes and Revelations',
+                'url': 'https://www.last.fm/music/Muse/Black+Holes+and+Revelations'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'duration': '209000',
+            'listeners': '1289747',
+            'mbid': '11c01f77-0931-486e-b31c-1278b4f4441a',
+            'name': 'Supermassive Black Hole',
+            'playcount': '13281499',
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'toptags': {
+                'tag': [{
+                    'name': 'alternative rock',
+                    'url': 'https://www.last.fm/tag/alternative+rock'
+                }, {
+                    'name': 'rock',
+                    'url': 'https://www.last.fm/tag/rock'
+                }, {
+                    'name': 'alternative',
+                    'url': 'https://www.last.fm/tag/alternative'
+                }, {
+                    'name': 'Muse',
+                    'url': 'https://www.last.fm/tag/Muse'
+                }, {
+                    'name': 'british',
+                    'url': 'https://www.last.fm/tag/british'
+                }]
+            },
+            'url': 'https://www.last.fm/music/Muse/_/Supermassive+Black+Hole',
+            'wiki': {
+                'content': 'Supermassive Black Hole is the first single from black holes and revelations, released on 19 June 2006. Its B-side is Crying Shame. The song has been available online since 9 May following a radio premiere the previous day. The single reached #4 in the UK Singles Chart, making it the highest charting single by the band to date. The track was mixed at Townhouse Studios, London. It was released as the third U.S. single on April 23, 2007.\n\nInfluences\n\nThe song showcases the album\'s experimentation with other genres. "It\'s the most different to anything we\'ve ever done," Matthew Bellamy told French magazine Rock Mag on 3 March 2006, "We\'ve had some Belgian influences: Millionaire, dEUS, Evil Superstars, Soulwax... These groups were the first to mix R&B rhythms with alternative guitar. We\'ve added a bit of Prince and Kanye West. The drumbeat isn\'t rocky, with Rage Against the Machine riffs underneath. We\u2019ve mixed a lot of things in this track, with a bit of electronica; it\u2019s different, slow, quite funky."\n\nSpeaking about the album with NME, Bellamy said, "I was going out dancing in clubs around New York. That helped create tracks like "Supermassive Black Hole". Franz Ferdinand would have done it very well, with that dance type beat going on mixed with alternative guitar and I\'ve always wanted to find that."\n\nThe different style has met mixed reactions, and resulted in numerous comparisons, often tongue-in-cheek, of the main riff to those of Cameo\'s 1986 single Word Up! and Britney Spears\' 2004 Do Somethin\'.\n\nMusic video\n\nThe single\'s accompanying promotional video shows the band playing in a small furniture shop, clad in masks. This is intercut with images of dancers in Zentai suits which are then unzipped at the end to reveal beings made of space. The video was shot by Floria Sigismondi, who is also known for directing music videos for bands such as Marilyn Manson, The White Stripes, Interpol and The Cure.\n\nRemixes and covers\n\nThe "Phones Control Voltage mix" of the song was released as the B-side on the vinyl single of Starlight. On the game FIFA 07 there was also an alternative version of the song, which features slightly different guitar and vocals to the original.\n\nThe song was covered by English Progressive metal band Threshold on the limited edition digipak of their 2007 album Dead Reckoning.\n\nChart performance\n\nThe song has been one of their most successful. It gave them their highest singles chart entry, selling 24,104 in its first week (downloads and physical). In total it has sold over 85,000 and was the 84th best selling song of 2006 in the UK.\n\nThe song went for adds on US radio at the end of April 2007. Its early supporters were S021 (Sirius Satellite Radio), KITS (San Francisco), and WFNX (Boston). By mid-May, many stations, including WBTZ (Burlington, Vermont), KJEE (Santa Barbara), S021, and WFNX, were supporting it. The song reached #6 on the US Modern Rock Tracks chart, making it the second highest charting Muse single in the US behind "Starlight". By early June, it was supported by 41 US alternative rock stations and also grew to receive major support from WEQX (Albany, New York) and WHTG (Monmouth/Ocean, New Jersey). By late July, support for the song had spread to 63 US alternative rock stations, with this number rising to 72 by mid-August.\n\n\nThis song was made available as downloadable content for Guitar Hero 3.\n\nThis song was featured in the 2008 movie, \'Twilight\' based on the books by Stephanie Meyer. It is also available on the widely popular soundtrack for that movie.\n\n <a href="http://www.last.fm/music/Muse/_/Supermassive+Black+Hole">Read more on Last.fm</a>. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply.',
+                'published': '29 May 2008, 13:21',
+                'summary': 'Supermassive Black Hole is the first single from black holes and revelations, released on 19 June 2006. Its B-side is Crying Shame. The song has been available online since 9 May following a radio premiere the previous day. The single reached #4 in the UK Singles Chart, making it the highest charting single by the band to date. The track was mixed at Townhouse Studios, London. It was released as the third U.S. single on April 23, 2007.\n\nInfluences <a href="http://www.last.fm/music/Muse/_/Supermassive+Black+Hole">Read more on Last.fm</a>.'
+            }
+        }
+    }]
+}
