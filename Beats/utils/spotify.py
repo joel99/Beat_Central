@@ -25,8 +25,9 @@ def auth(client_id, client_secret):
     auth_str = b64encode(client_id + ":" + client_secret)
     auth_hdr = {"Authorization": "Basic " + auth_str}
     url = "https://accounts.spotify.com/api/token"
-    body = {"grant_type": "client_credentials"}
-    res = rest.post(url, body, None, auth_hdr)
+    body = {"grant_type": "client_credentials", "scope": "user-read-private"}
+    q_str = {"scope": "user-read-private"}
+    res = rest.post(url, body, q_str, auth_hdr)
     if res["type"] == "HTTPError" or res["type"] == "URLError":
         # returning (status, result); error already sent to console
         return False
@@ -37,7 +38,8 @@ def auth(client_id, client_secret):
         err_str += res_dict["error_description"]
         print err_str
         return False
-    ACCESS_TOKEN = res_dict["object"]["access_token"]
+    global ACCESS_TOKEN
+    ACCESS_TOKEN = res_dict["access_token"]
     return True
 
 
@@ -52,7 +54,8 @@ def search(q_type, name, artist=None):
     """
     url = API_ROOT + "/search"
     auth_hdr = {"Authorization": "Bearer " + ACCESS_TOKEN}
-    query_d = {"market": "from_token", "type": q_type, "limit": 1}
+    query_d = {"type": q_type, "limit": 1}
+    # Removed "market": "from_token" for testing
     if q_type == "artist":
         q_str = 'artist:"' + name + '"'
     elif q_type == "album":
@@ -74,6 +77,7 @@ def search(q_type, name, artist=None):
         # returning (status, result); error already sent to console
         return ("Error", {})
     res_dict = json.loads(res["object"].read())
+    return res_dict
     # TODO: error catching from Spotify API
     # TODO: parse artist, album, and track responses differently
     # TODO: for any item, return small dict with type, name, artist, and URI
