@@ -81,7 +81,7 @@ def isFavorited(userID, favType, entry, entryID):
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     favs = c.execute(cmd).fetchone() #is the string
     db.close()
-    return entry + entryID in favs.split('::')
+    return entry + entryID in favs[0].split('::')
     
 #does not have isFavorited check
 def addFavorite(userID, favType, entry, entryID):
@@ -106,7 +106,7 @@ def rmFavorite(userID, favType, entry, entryID):
     #first get the relevant info
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     oldFavs = c.execute(cmd).fetchone() #is the string
-    splitFavs = oldFavs.split('::').remove(entry + entryID)
+    splitFavs = oldFavs[0].split('::').remove(entry + entryID)
     newFavs = '::'.join(splitFavs)
     cmd = "UPDATE UserInfo SET fav%s='%s' WHERE UserID = %d;"%(favType, newFavs, userID)
     c.execute(cmd)
@@ -121,8 +121,7 @@ def getFavorites(userID, favType):
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     sel = c.execute(cmd).fetchone() #the relevant string
     db.close()
-    print sel
-    strDict = sel.split('::')
+    strDict = sel[0].split('::')
     ret = []
     for entry in strDict:
         ret.add(entry.split('~~'))
