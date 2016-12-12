@@ -12,12 +12,7 @@ def root():
         return render_template('login.html', isLoggedIn = False)
     else:
         #add processing
-        feedDict = content.getFeed()
-        return render_template('home.html', isLoggedIn = True, newsFeed = feedDict)
- 
-@app.route('/test/', methods = ['POST','GET'])
-def test():
-	return render_template('results.html', isLoggedIn = True, example="example")
+        return render_template('home.html', isLoggedIn = True)
 	
 @app.route('/toolbar/', methods = ['POST'])
 def toolBar():

@@ -121,6 +121,7 @@ def getFavorites(userID, favType):
     cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     sel = c.execute(cmd).fetchone() #the relevant string
     db.close()
+    print sel
     strDict = sel.split('::')
     ret = []
     for entry in strDict:
