@@ -7,6 +7,9 @@
 <div class = "container">
   <h2>Search Results for {{query}}</h2>
 	<br>
+	{% if albums == "Empty" and artists == "Empty" and songs == "Empty" %}
+	<h3> No search results found. Try again. </h3>
+	{% else %}
   	<center><h2>Artists</h2></center>
 	<hr width="200px">
 	{% for i in artists %}
@@ -26,7 +29,11 @@
 	{% for i in albums %}
 	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
 		<div class="picture col-md-1">
+			{% if i['image'] == NONE %}
+			NO IMAGE PLACEhOLDER
+			{% else %}
 			<img class="img-responsive img-circle" src="{{i['image']}}">
+			{% endif %}
 		</div>
 		<div class="col-md-8">
 			<h3>{{i['name']}}</h3>
@@ -48,6 +55,7 @@
 	</div>
 	<br>
 	{% endfor %}
+	{% endif %}
 </div>
 
 {% endblock %}

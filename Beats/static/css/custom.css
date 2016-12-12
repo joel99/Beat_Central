@@ -4,12 +4,11 @@
 }
 
 body{
-	background: lightgrey;
+	background: url('http://www.userlogos.org/files/backgrounds/ctach1991/Clouds2560x1600.jpg');
 }
 
 .container{
 	color: white;
-	/*background-image: url("/static/back.jpg");*/
 }
 
 .jumbotron{

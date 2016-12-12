@@ -10,6 +10,7 @@
   </head>
   <body id="dadbod">
     <!--TOOLBAR-->
+   <div class="container-fluid" style="background:black;">
     <nav class = "navbar navbar-default">
      <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -20,7 +21,7 @@
           </button>	
           <a class="navbar-brand" href="/">Beat Central</a>
      </div>
-    <div class = "container">
+    <div class = "container-fluid">
 	<div id ="navbar" class="collapse navbar-collapse">
 	<ul class = "nav navbar-nav navbar-right">
 	  {% if isLoggedIn %}
@@ -102,8 +103,6 @@
     </nav>
     <br>
     <div class = "container">
-      {% block jumbo %}
-      
       <div class = "jumbotron">
 		<center><h1 id="oo">Search for Music!<h1></center>
 			<div class = "container">
@@ -114,8 +113,12 @@
 			</span>
 			</form>
 			</div>
-
-      <br>
+     			<br>
+     </div>
+   </div>
+   </div>
+   <div class="container">
+      {% block jumbo %}
       {% endblock %}
       {% block content %}
       {% endblock %}
