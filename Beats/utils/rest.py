@@ -9,7 +9,10 @@ from urllib import urlencode
 
 def get(url, query=None, headers=None):
     try:
-        req = Request(url + format_query(query), headers)
+        req = Request(url + format_query(query))
+        if headers is not None:
+            for key in headers:
+                req.add_header(key, headers[key])
         response = urlopen(req)
     except HTTPError as e:
         print "ERROR: rest.get() on " + url + " resulted in HTTPError/"
@@ -25,10 +28,10 @@ def get(url, query=None, headers=None):
 
 def post(url, body, query=None, headers=None):
     try:
+        req = Request(url + format_query(query), urlencode(body))
         if headers is not None:
-            req = Request(url + format_query(query), urlencode(body), headers)
-        else:
-            req = Request(url + format_query(query), urlencode(body))
+            for key in headers:
+                req.add_header(key, headers[key])
         response = urlopen(req)
     except HTTPError as e:
         print "ERROR: rest.post() on " + url + " resulted in HTTPError/"
