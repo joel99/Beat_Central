@@ -17,9 +17,10 @@ from base64 import b64encode
 
 # GLOBALS:
 API_ROOT = "https://api.spotify.com/v1"
-ACCESS_TOKEN = ""
+# ACCESS_TOKEN = ""
 
-
+# auth not needed, unable to use market=from_token for improved rates
+"""
 def auth(client_id, client_secret):
     # returns boolean
     auth_str = b64encode(client_id + ":" + client_secret)
@@ -41,7 +42,7 @@ def auth(client_id, client_secret):
     global ACCESS_TOKEN
     ACCESS_TOKEN = res_dict["access_token"]
     return True
-
+"""
 
 def search(q_type, name, artist=None):
     """ Get 1st search result for album, artist, or track.
@@ -53,7 +54,7 @@ def search(q_type, name, artist=None):
         result. If empty, no results found.
     """
     url = API_ROOT + "/search"
-    auth_hdr = {"Authorization": "Bearer " + ACCESS_TOKEN}
+    # auth_hdr = {"Authorization": "Bearer " + ACCESS_TOKEN}
     query_d = {"type": q_type, "limit": 1}
     # Removed "market": "from_token" for testing
     if q_type == "artist":
@@ -72,13 +73,31 @@ def search(q_type, name, artist=None):
         print "ERROR: spotify.search() not given proper q_type"
         return ("Error", {})
     query_d["q"] = q_str
-    res = rest.get(url, query_d, auth_hdr)
-    if res["type"] == "HTTPError" or res["type"] == "URLError":
+    # resp = rest.get(url, query_d, auth_hdr)
+    resp = rest.get(url, query_d)
+    if resp["type"] == "HTTPError" or resp["type"] == "URLError":
         # returning (status, result); error already sent to console
         return ("Error", {})
-    res_dict = json.loads(res["object"].read())
+    resp_dict = json.loads(resp["object"].read())
+    return ("OK", build_result_dict(q_type, resp_dict[q_type + "s"]["items"]))
+
+def build_result_dict(q_type, item_list):
+    if len(item_list) == 0:
+        return {}
+    item = item_list[0]
+    res_dict = {"name": item["name"], "type": q_type,
+                "uri": item["uri"]}
+    if "artists" in item:
+        res_dict["artist"] = item["artists"][0]["name"]
     return res_dict
-    # TODO: error catching from Spotify API
-    # TODO: parse artist, album, and track responses differently
-    # TODO: for any item, return small dict with type, name, artist, and URI
-    return "Placeholder"
+
+def getItemUri(q_type, name, artist=None):
+    """ Returns the Spotify uri for an item
+
+    Args:
+        
+    
+    item = search(q_type, name, artist)
+    if item[0] == "Error":
+        return ("Error", "")
+    return ("OK", item[1]["uri"])
