@@ -12,49 +12,70 @@
 	{% else %}
   	<center><h2>Artists</h2></center>
 	<hr width="200px">
+	{% if artists == "Empty" %}
+	<center><h3> No search results found. </h3></center>
+	{% else %}
 	{% for i in artists %}
-	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
-		<div class="picture col-md-1">
-			<img class="img-responsive img-circle" src="{{i['image']}}">
-		</div>
-		<div class="col-md-8">
-			<h3>{{i['name']}}</h3>
-		</div>
-	</div>
 	<br>
-	{% endfor %}
-	<br>
-	<center><h2>Albums</h2></center>
-	<hr width="200px">
-	{% for i in albums %}
 	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
-		<div class="picture col-md-1">
+		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
-			NO IMAGE PLACEhOLDER
+			<img class="img-responsive img-circle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png">
 			{% else %}
 			<img class="img-responsive img-circle" src="{{i['image']}}">
 			{% endif %}
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-4">
 			<h3>{{i['name']}}</h3>
 		</div>
 	</div>
 	<br>
 	{% endfor %}
+	{% endif %}
+	<br>
+	<center><h2>Albums</h2></center>
+	<hr width="200px">
+	{% if albums == "Empty" %}
+	<center><h3> No search results found. </h3></center>
+	{% else %}
+	{% for i in albums %}
+	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
+		<div class="picture col-md-1 col-md-offset-3">
+			{% if i['image'] == NONE %}
+			<img class="img-responsive img-circle" src ="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png">
+			{% else %}
+			<img class="img-responsive img-circle" src="{{i['image']}}">
+			{% endif %}
+		</div>
+		<div class="col-md-4">
+			<h3>{{i['name']}}</h3>
+		</div>
+	</div>
+	<br>
+	{% endfor %}
+	{% endif %}
 	<br>
 	<center><h2>Songs<h2></center>
 	<hr width="200px">
+	{% if songs == "Empty" %}
+	<center><h3> No search results found. </h3></center>
+	{% else %}
 	{% for i in songs %}
 	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
-		<div class="picture col-md-1">
+		<div class="picture col-md-1 col-md-offset-3">
+			{% if i['image'] == NONE %}
+			<img class="img-responsive img-circle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png">
+			{% else %}
 			<img class="img-responsive img-circle" src="{{i['image']}}">
+			{% endif %}
 		</div>
-		<div class="col-md-8">
-			<h3>{{i['name']}}</h3>
+		<div class="col-md-4">
+			<h3>{{i['name']}}</h3>{{i['artist']}}
 		</div>
 	</div>
 	<br>
 	{% endfor %}
+	{% endif %}
 	{% endif %}
 </div>
 

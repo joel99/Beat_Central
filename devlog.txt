@@ -62,3 +62,10 @@ jonalfD -- 2016-12-04 14:32
 - Updated parsing of restFm.py, search results now piped properly
 - Updated favorites parsing, syntax skeleton in notesForFrontend
 ==============================
+
+==============================
+anthonyC -- 2016-12-12 11:43
+	
+- Updated search page with more information
+
+==============================
