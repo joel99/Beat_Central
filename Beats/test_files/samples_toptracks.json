@@ -1,0 +1,292 @@
+{
+    'toptracks': {
+        '@attr': {
+            'artist': 'Muse',
+            'page': '1',
+            'perPage': '10',
+            'total': '223973',
+            'totalPages': '22398'
+        },
+        'track': [{
+            '@attr': {
+                'rank': '1'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '1289747',
+            'mbid': '11c01f77-0931-486e-b31c-1278b4f4441a',
+            'name': 'Supermassive Black Hole',
+            'playcount': '13281499',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Supermassive+Black+Hole'
+        }, {
+            '@attr': {
+                'rank': '2'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '1289142',
+            'mbid': '60e94685-0481-4d3d-bd84-11c389d9b2a5',
+            'name': 'Starlight',
+            'playcount': '12117538',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Starlight'
+        }, {
+            '@attr': {
+                'rank': '3'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '1186420',
+            'mbid': '3e038632-10a4-4918-8b09-4fc4f5c89dda',
+            'name': 'Time Is Running Out',
+            'playcount': '10581662',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Time+Is+Running+Out'
+        }, {
+            '@attr': {
+                'rank': '4'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '1110977',
+            'mbid': 'e61a34bd-9ee5-4ade-89c5-8d3624ab5c85',
+            'name': 'Hysteria',
+            'playcount': '10216374',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Hysteria'
+        }, {
+            '@attr': {
+                'rank': '5'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '1005193',
+            'mbid': 'a28635ae-0520-401c-be53-20f4846f0113',
+            'name': 'Knights of Cydonia',
+            'playcount': '8742904',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Knights+of+Cydonia'
+        }, {
+            '@attr': {
+                'rank': '6'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '905170',
+            'mbid': '0ca789c6-3618-48f1-8ee0-977f70a621d6',
+            'name': 'Uprising',
+            'playcount': '8784220',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Uprising'
+        }, {
+            '@attr': {
+                'rank': '7'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '812601',
+            'mbid': '715a5869-567d-4d8b-b504-67d784b6b955',
+            'name': 'Plug In Baby',
+            'playcount': '6832908',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Plug+In+Baby'
+        }, {
+            '@attr': {
+                'rank': '8'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '777824',
+            'mbid': 'cbdbf977-7ac0-42ee-ab9d-e64ed653d1da',
+            'name': 'Stockholm Syndrome',
+            'playcount': '6203388',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Stockholm+Syndrome'
+        }, {
+            '@attr': {
+                'rank': '9'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '757751',
+            'mbid': '989149e3-dfd5-4187-9d4a-aa72fe82dc1f',
+            'name': 'Feeling Good',
+            'playcount': '5845666',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Feeling+Good'
+        }, {
+            '@attr': {
+                'rank': '10'
+            },
+            'artist': {
+                'mbid': 'fd857293-5ab8-40de-b29e-55a69d4e4d0f',
+                'name': 'Muse',
+                'url': 'https://www.last.fm/music/Muse'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/859fc05be7d844ea8f4474541c53f549.png',
+                'size': 'extralarge'
+            }],
+            'listeners': '734137',
+            'mbid': '89af5e8f-8e03-4cb9-a923-adada0faa995',
+            'name': 'Map of the Problematique',
+            'playcount': '7082298',
+            'streamable': '0',
+            'url': 'https://www.last.fm/music/Muse/_/Map+of+the+Problematique'
+        }]
+    }
+}

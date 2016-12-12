@@ -21,6 +21,8 @@ API_ROOT = "http://ws.audioscrobbler.com/2.0/"
 # TODO: implement key error catching in all search/info funcs
 # TODO: test what corrections does
 # NOTE: should we link to artist from tracks in get albums? no good for spotify
+# TODO: load api_key from json config using before_first_request in app.py
+# NOTE: are listeners and playcount truly necessary?
 
 
 # ======MAIN METHODS====== #
@@ -244,6 +246,30 @@ def getArtistInfoByName(name):
     return getArtistInfo(None, name)
 
 
+def getSimilarSongsByID(mbid, pages=1):
+    return get_similar_tracks(mbid, None, None, pages)
+
+
+def getSimilarSongsByName(name, artist, pages=1):
+    return get_similar_tracks(None, name, artist, pages)
+
+
+def getTopTracksByID(mbid, pages=1):
+    return get_artist_top_tracks(mbid, None, pages)
+
+
+def getTopTracksByName(name, pages=1):
+    return get_artist_top_tracks(None, name, pages)
+
+
+def getTopAlbumsByID(mbid, pages=1):
+    return get_artist_top_albums(mbid, None, pages)
+
+
+def getTopAlbumsByName(name, pages=1):
+    return get_artist_top_albums(None, name, pages)
+
+
 def getSongInfo(mbid=None, name=None, artist=None):
     query_d = {"method": "track.getinfo", "api_key": API_KEY,
                "format": "json"}
@@ -264,7 +290,11 @@ def getSongInfo(mbid=None, name=None, artist=None):
         return ("Error", {})
     if res_dict["track"]["name"] == "None":
         return ("OK", {})
-    return ("OK", build_song_info_dict(res_dict["track"]))
+    song_info_dict = build_song_info_dict(res_dict["track"])
+    similar_list = get_similar_tracks(mbid, name, artist)
+    if similar_list[0] == "OK" and len(similar_list[1]) > 0:
+        song_info_dict["similar"] = similar_list
+    return ("OK", song_info_dict)
 
 
 def getAlbumInfo(mbid=None, name=None, artist=None):
@@ -343,7 +373,7 @@ def build_artist_info_dict(artist):
                     (entry["image"], entry["image_size"]) = img_tuple
             info_dict["similar"].append(entry)
     if "tags" in artist:
-        # NOTE, this is not the same as topTags, which we might need as well
+        # provides better, more abridged tags than toptags endpoint
         info_dict["tags"] = []
         for tag in artist["tags"]["tag"]:
             info_dict["tags"].append(tag["name"])
@@ -378,7 +408,7 @@ def build_album_info_dict(album):
             info_dict["tracks"].append(entry)
     if "tags" in album:
         # NOTE: according to docs, could be "toptags" instead of "tags"
-        # NOTE: this is not the same as topTags, which we might need as well
+        # provides better, more abridged tags than toptags endpoint
         info_dict["tags"] = []
         for tag in album["tags"]["tag"]:
             info_dict["tags"].append(tag["name"])
@@ -415,14 +445,119 @@ def build_song_info_dict(track):
                 (info_dict["album"]["image"], info_dict[
                  "album"]["image_size"]) = img_tuple
     if "toptags" in track:
-        # NOTE: not the same as topTags endpoint, which we might use instead
+        # provides better, more abridged tags than toptags endpoint
         info_dict["tags"] = []
         for tag in track["toptags"]["tag"]:
             info_dict["tags"].append(tag["name"])
     return info_dict
 
 
+def get_similar_tracks(mbid=None, name=None, artist=None, pages=1):
+    # TODO: explain in documentation - pages (total #) vs page
+    query_d = {"method": "track.getsimilar", "api_key": API_KEY,
+               "format": "json", "limit": 10 * pages}
+    if mbid is not None:
+        query_d["mbid"] = mbid
+    elif name is not None and artist is not None:
+        query_d["track"] = name
+        query_d["artist"] = artist
+    # User-agent header should be default
+    res = rest.get(API_ROOT, query_d)
+    if res["type"] == "HTTPError" or res["type"] == "URLError":
+            # returning (status, result); error already sent to console
+        return ("Error", [])
+    res_dict = json.loads(res["object"].read())
+    if "error" in res_dict:
+        print build_API_error(res_dict, "get_similar_tracks",
+                              mbid=mbid, name=name)
+        # returning (status, result); error already sent to console
+        return ("Error", [])
+    return ("OK",
+            build_similar_tracks_list(res_dict["similartracks"]["track"]))
+
+
+def build_similar_tracks_list(track_list):
+    similar_list = []
+    # Possible that for no similarities, list will stay empty
+    for track in track_list:
+        entry = {"name": track["name"], "artist": track["artist"]["name"]}
+        if "mbid" in track:
+            # DONT ASSUME mbid WILL BE PRESENT (most likely it won't)
+            entry["mbid"] = track["mbid"]
+        if "mbid" in track["artist"]:
+            entry["artist_mbid"] = track["artist"]["mbid"]
+        if "image" in track:
+            img_tuple = get_small_image(track)
+            if img_tuple[0] != "":
+                # aka size is extralarge, large, or medium only
+                (entry["image"], entry["image_size"]) = img_tuple
+        similar_list.append(entry)
+    return similar_list
+
+
+def get_artist_top_tracks(mbid=None, name=None, pages=1):
+    # pages actually functions as a limit multiplier, so pages=2 -> 20 results
+    query_d = {"method": "artist.gettoptracks", "api_key": API_KEY,
+               "format": "json", "limit": 10, "page": pages}
+    if mbid is not None:
+        query_d["mbid"] = mbid
+    elif name is not None:
+        query_d["artist"] = name
+    # User-agent header should be default
+    res = rest.get(API_ROOT, query_d)
+    if res["type"] == "HTTPError" or res["type"] == "URLError":
+            # returning (status, result); error already sent to console
+        return ("Error", [])
+    res_dict = json.loads(res["object"].read())
+    if "error" in res_dict:
+        print build_API_error(res_dict, "get_artist_top_tracks",
+                              mbid=mbid, name=name)
+        # returning (status, result); error already sent to console
+        return ("Error", [])
+    return ("OK", build_artist_top_item_list(res_dict["toptracks"]["track"]))
+
+
+def get_artist_top_albums(mbid=None, name=None, pages=1):
+    # pages actually functions as a limit multiplier, so pages=2 -> 20 results
+    query_d = {"method": "artist.gettopalbums", "api_key": API_KEY,
+               "format": "json", "limit": 10, "page": pages}
+    if mbid is not None:
+        query_d["mbid"] = mbid
+    elif name is not None:
+        query_d["artist"] = name
+    # User-agent header should be default
+    res = rest.get(API_ROOT, query_d)
+    if res["type"] == "HTTPError" or res["type"] == "URLError":
+            # returning (status, result); error already sent to console
+        return ("Error", [])
+    res_dict = json.loads(res["object"].read())
+    if "error" in res_dict:
+        print build_API_error(res_dict, "get_artist_top_albums",
+                              mbid=mbid, name=name)
+        # returning (status, result); error already sent to console
+        return ("Error", [])
+    return ("OK", build_artist_top_item_list(res_dict["topalbums"]["album"]))
+
+
+def build_artist_top_item_list(item_list):
+    top_item_list = []
+    for item in item_list:
+        entry = {"name": item["name"], "artist": item["artist"]["name"]}
+        # Artist name included so that track links can be made easily
+        if "mbid" in item:
+            # DONT ASSUME mbid WILL BE PRESENT (most likely it won't)
+            entry["mbid"] = item["mbid"]
+        if "image" in item:
+            img_tuple = get_small_image(item)
+            if img_tuple[0] != "":
+                # aka size is extralarge, large, or medium only
+                (entry["image"], entry["image_size"]) = img_tuple
+        top_item_list.append(entry)
+    return top_item_list
+
+
 def get_info_image(item):
+    # Returns image url and size from item, leaning larger
     img_url, img_size = "", ""
     for img_dict in item["image"]:
         if img_dict["size"] == "medium" and img_size != "large":
@@ -454,22 +589,26 @@ def build_basic_res_dict(item):
         "name": item["name"], "mbid": item["mbid"]
     }
     if "image" in item:
-        img_url = ""
-        img_size = ""
-        for img_dict in item["image"]:
-            if img_dict["size"] == "small" and img_size != "large":
-                img_url = img_dict["#text"]
-                img_size = img_dict["size"]
-            if img_dict["size"] == "large" or img_dict["size"] == "medium":
-                img_url = img_dict["#text"]
-                img_size = img_dict["size"]
-            if img_dict["size"] == "medium":
-                break
-            # Do not use extralarge images; they waste page load times
-        if img_url != "":
-            item_dict["image"] = img_url
-            item_dict["image_size"] = img_size
+        img_tuple = get_small_image(item)
+        if img_tuple[0] != "":
+            # aka size is extralarge, large, or medium only
+            (item_dict["image"], item_dict["image_size"]) = img_tuple
     return item_dict
+
+
+def get_small_image(item):
+    # Returns image url and size from item, leaning smaller
+    img_url, img_size = "", ""
+    for img_dict in item["image"]:
+        if img_dict["size"] == "small" and img_size != "large":
+            img_url = img_dict["#text"]
+            img_size = img_dict["size"]
+        if img_dict["size"] == "large" or img_dict["size"] == "medium":
+            img_url = img_dict["#text"]
+            img_size = img_dict["size"]
+        if img_dict["size"] == "medium":
+            break
+    return (img_url, img_size)
 
 
 def build_API_error(res_dict, function, mbid=None, name=None, artist=None):

@@ -1,0 +1,237 @@
+{
+    'topalbums': {
+        '@attr': {
+            'artist': 'Swedish House Mafia',
+            'page': '1',
+            'perPage': '10',
+            'total': '28895',
+            'totalPages': '2890'
+        },
+        'album': [{
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/d651363811144bc8a5c69b4659459fe1.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/d651363811144bc8a5c69b4659459fe1.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/d651363811144bc8a5c69b4659459fe1.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/d651363811144bc8a5c69b4659459fe1.png',
+                'size': 'extralarge'
+            }],
+            'name': 'One (Your Name) [feat. Pharrell]',
+            'playcount': 1470404,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/One+(Your+Name)+%5Bfeat.+Pharrell%5D'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/2a19a6b7e1d9470db7f447e5a4aa73b8.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/2a19a6b7e1d9470db7f447e5a4aa73b8.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/2a19a6b7e1d9470db7f447e5a4aa73b8.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/2a19a6b7e1d9470db7f447e5a4aa73b8.png',
+                'size': 'extralarge'
+            }],
+            'name': 'Save The World',
+            'playcount': 1237787,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Save+The+World'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/5d2a1da708624f27a198ce10c5de7e5d.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/5d2a1da708624f27a198ce10c5de7e5d.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/5d2a1da708624f27a198ce10c5de7e5d.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/5d2a1da708624f27a198ce10c5de7e5d.png',
+                'size': 'extralarge'
+            }],
+            'name': "Don't You Worry Child (Radio Edit) [feat. John Martin]",
+            'playcount': 1435827,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Don%27t+You+Worry+Child+(Radio+Edit)+%5Bfeat.+John+Martin%5D'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/21f46acb3910453ca8ccbe9702345e61.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/21f46acb3910453ca8ccbe9702345e61.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/21f46acb3910453ca8ccbe9702345e61.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/21f46acb3910453ca8ccbe9702345e61.png',
+                'size': 'extralarge'
+            }],
+            'name': "Don't You Worry Child (feat. John Martin)",
+            'playcount': 1037464,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Don%27t+You+Worry+Child+(feat.+John+Martin)'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/47e2d5978f2549fc88b4acce79ab9a75.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/47e2d5978f2549fc88b4acce79ab9a75.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/47e2d5978f2549fc88b4acce79ab9a75.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/47e2d5978f2549fc88b4acce79ab9a75.png',
+                'size': 'extralarge'
+            }],
+            'mbid': '83cfacbd-7d64-442a-98eb-f7c15f4eb20b',
+            'name': 'Greyhound',
+            'playcount': 888855,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Greyhound'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/5899dacb88684d7aa2e45b394e8db422.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/5899dacb88684d7aa2e45b394e8db422.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/5899dacb88684d7aa2e45b394e8db422.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/5899dacb88684d7aa2e45b394e8db422.png',
+                'size': 'extralarge'
+            }],
+            'mbid': '3635ce51-ff95-4656-a8d0-3931a09573aa',
+            'name': 'Until Now',
+            'playcount': 1613050,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Until+Now'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/5e4176b1e3dd4fc0bd982427d9283606.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/5e4176b1e3dd4fc0bd982427d9283606.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/5e4176b1e3dd4fc0bd982427d9283606.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/5e4176b1e3dd4fc0bd982427d9283606.png',
+                'size': 'extralarge'
+            }],
+            'name': 'Antidote',
+            'playcount': 606622,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Antidote'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/c9b8947a26294d84821f5cfbabccbe67.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/c9b8947a26294d84821f5cfbabccbe67.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/c9b8947a26294d84821f5cfbabccbe67.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/c9b8947a26294d84821f5cfbabccbe67.png',
+                'size': 'extralarge'
+            }],
+            'mbid': 'd0534b0d-967d-4533-9f42-cd042b3cb66f',
+            'name': 'Miami 2 Ibiza',
+            'playcount': 442483,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Miami+2+Ibiza'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/7283733c21b349488e250a3ff072ab92.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/7283733c21b349488e250a3ff072ab92.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/7283733c21b349488e250a3ff072ab92.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/7283733c21b349488e250a3ff072ab92.png',
+                'size': 'extralarge'
+            }],
+            'mbid': 'a14d02eb-b5df-4a36-a4f7-d27793efe551',
+            'name': 'Until One',
+            'playcount': 816582,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Until+One'
+        }, {
+            'artist': {
+                'mbid': '99075985-0d80-4692-a15e-b16f78831792',
+                'name': 'Swedish House Mafia',
+                'url': 'https://www.last.fm/music/Swedish+House+Mafia'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/470e26713e0c4b88980e9bf652cf089b.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/470e26713e0c4b88980e9bf652cf089b.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/470e26713e0c4b88980e9bf652cf089b.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/470e26713e0c4b88980e9bf652cf089b.png',
+                'size': 'extralarge'
+            }],
+            'mbid': '4cef9562-994c-4c72-b658-465b15dc03ea',
+            'name': 'Save The World (The Remixes)',
+            'playcount': 281855,
+            'url': 'https://www.last.fm/music/Swedish+House+Mafia/Save+The+World+(The+Remixes)'
+        }]
+    }
+}

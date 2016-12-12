@@ -1,0 +1,334 @@
+{
+    'similartracks': {
+        '@attr': {
+            'artist': 'The Chainsmokers'
+        },
+        'track': [{
+            'artist': {
+                'mbid': '3e1f2ee4-16be-4406-bf18-6173840cf2b1',
+                'name': 'Martin Garrix',
+                'url': 'https://www.last.fm/music/Martin+Garrix'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/693b934eed2ac07b284626ca6911e224.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/693b934eed2ac07b284626ca6911e224.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/693b934eed2ac07b284626ca6911e224.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/693b934eed2ac07b284626ca6911e224.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/693b934eed2ac07b284626ca6911e224.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/693b934eed2ac07b284626ca6911e224.png',
+                'size': ''
+            }],
+            'match': 1.0,
+            'name': 'In the Name of Love',
+            'playcount': 450835,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/Martin+Garrix/_/In+the+Name+of+Love'
+        }, {
+            'artist': {
+                'mbid': 'f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387',
+                'name': 'Ariana Grande',
+                'url': 'https://www.last.fm/music/Ariana+Grande'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': ''
+            }],
+            'match': 0.717382,
+            'name': 'Side To Side',
+            'playcount': 695233,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/Ariana+Grande/_/Side+To+Side'
+        }, {
+            'artist': {
+                'mbid': 'e565610b-9a8f-451d-b594-ea658d76f725',
+                'name': 'Fifth Harmony',
+                'url': 'https://www.last.fm/music/Fifth+Harmony'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': ''
+            }],
+            'match': 0.565044,
+            'name': 'All In My Head (Flex)',
+            'playcount': 349798,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/Fifth+Harmony/_/All+In+My+Head+(Flex)'
+        }, {
+            'artist': {
+                'mbid': 'e565610b-9a8f-451d-b594-ea658d76f725',
+                'name': 'Fifth Harmony',
+                'url': 'https://www.last.fm/music/Fifth+Harmony'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/1055f1e260daa265bfb0025717ca9e7e.png',
+                'size': ''
+            }],
+            'match': 0.477219,
+            'name': 'woRK frOm HoMe',
+            'playcount': 1154877,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/Fifth+Harmony/_/woRK+frOm+HoMe'
+        }, {
+            'artist': {
+                'name': 'MATOMA',
+                'url': 'https://www.last.fm/music/Matoma'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/d1013020dc68dfd2ce4a5ca531cff2e6.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/d1013020dc68dfd2ce4a5ca531cff2e6.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/d1013020dc68dfd2ce4a5ca531cff2e6.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/d1013020dc68dfd2ce4a5ca531cff2e6.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/d1013020dc68dfd2ce4a5ca531cff2e6.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/d1013020dc68dfd2ce4a5ca531cff2e6.png',
+                'size': ''
+            }],
+            'match': 0.389356,
+            'name': 'False Alarm',
+            'playcount': 146503,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/Matoma/_/False+Alarm'
+        }, {
+            'artist': {
+                'name': 'Sigala',
+                'url': 'https://www.last.fm/music/SIGALA'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/06f90b76df332f55c6ed9a87a97949b7.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/06f90b76df332f55c6ed9a87a97949b7.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/06f90b76df332f55c6ed9a87a97949b7.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/06f90b76df332f55c6ed9a87a97949b7.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/06f90b76df332f55c6ed9a87a97949b7.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/06f90b76df332f55c6ed9a87a97949b7.png',
+                'size': ''
+            }],
+            'match': 0.270729,
+            'name': 'Give Me Your Love',
+            'playcount': 74512,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/SIGALA/_/Give+Me+Your+Love'
+        }, {
+            'artist': {
+                'mbid': 'f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387',
+                'name': 'Ariana Grande',
+                'url': 'https://www.last.fm/music/Ariana+Grande'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/bfd0a7f0c5076c248b24c6772933dc1b.png',
+                'size': ''
+            }],
+            'match': 0.220492,
+            'name': 'Everyday',
+            'playcount': 179359,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/Ariana+Grande/_/Everyday'
+        }, {
+            'artist': {
+                'mbid': '122d63fc-8671-43e4-9752-34e846d62a9c',
+                'name': 'Katy Perry',
+                'url': 'https://www.last.fm/music/Katy+Perry'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/6edecd167da94ea8b6020c4b4a949921.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/6edecd167da94ea8b6020c4b4a949921.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/6edecd167da94ea8b6020c4b4a949921.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/6edecd167da94ea8b6020c4b4a949921.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/6edecd167da94ea8b6020c4b4a949921.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/6edecd167da94ea8b6020c4b4a949921.png',
+                'size': ''
+            }],
+            'match': 0.192114,
+            'name': 'Rise',
+            'playcount': 424813,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/Katy+Perry/_/Rise'
+        }, {
+            'artist': {
+                'name': 'kiiara',
+                'url': 'https://www.last.fm/music/kiiara'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/f53583956f467a7bb1656765e6152223.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/f53583956f467a7bb1656765e6152223.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/f53583956f467a7bb1656765e6152223.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/f53583956f467a7bb1656765e6152223.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/f53583956f467a7bb1656765e6152223.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/f53583956f467a7bb1656765e6152223.png',
+                'size': ''
+            }],
+            'match': 0.104971,
+            'name': 'Intention',
+            'playcount': 107460,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/kiiara/_/Intention'
+        }, {
+            'artist': {
+                'name': 'Feder',
+                'url': 'https://www.last.fm/music/Feder'
+            },
+            'image': [{
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/34s/300a940c99336f7629444215d14c4dac.png',
+                'size': 'small'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/64s/300a940c99336f7629444215d14c4dac.png',
+                'size': 'medium'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/174s/300a940c99336f7629444215d14c4dac.png',
+                'size': 'large'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300x300/300a940c99336f7629444215d14c4dac.png',
+                'size': 'extralarge'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/300a940c99336f7629444215d14c4dac.png',
+                'size': 'mega'
+            }, {
+                '#text': 'https://lastfm-img2.akamaized.net/i/u/arQ/300a940c99336f7629444215d14c4dac.png',
+                'size': ''
+            }],
+            'match': 0.0897035,
+            'name': 'Blind (feat. Emmi)',
+            'playcount': 24116,
+            'streamable': {
+                '#text': '0',
+                'fulltrack': '0'
+            },
+            'url': 'https://www.last.fm/music/Feder/_/Blind+(feat.+Emmi)'
+        }]
+    }
+}
