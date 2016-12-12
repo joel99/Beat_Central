@@ -1,8 +1,5 @@
 import database, spotify, lastFm
 
-def getFollowFeed():
-    return None
-
 def getSearch(q, searchType):
     if searchType == 0:
         searchResults = lastFm.songSearch(q)
@@ -37,7 +34,9 @@ def getFavorites(typeOf, userID):
 
     return favList	
 
-def contentGen(lastFmID, spotifyID):
-    lastContent = lastFm.getContent(lastFmID)
-    spotContent = spotify.getContent(spotifyID)
+def contentGen(typeOf, lastFmID):
+    lastContent = lastFm.getSongInfo(lastFmID)
+    #lastContent["name"] = 
+    #type, name, artist
+    spotContent = spotify.getItemUri(typeOf.lower())
     return [lastContent, spotContent]
