@@ -22,8 +22,8 @@ def register(username, password):
     return database.registerAccountInfo(username, hashed(password))
 
 #User interaction
-def isFavorited(uID, typeOf, lastID):
-    return database.isFavorited(uID, typeOf, lastID)
+def isFavorited(uID, typeOf, entry, lastID):
+    return database.isFavorited(uID, typeOf, entry, lastID)
 
 
 #HELPERS--------------------------------------
