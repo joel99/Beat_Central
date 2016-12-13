@@ -87,7 +87,7 @@ def searchResult():
 @app.route('/result/<typeOf>/<lastFmID>')
 def resultPage():
     res = content.resultGen(typeOf, lastFmID)
-    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = str(utils.isFavorited(getUserID(), typeOf, lastFmID)))
+    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = str(utils.isFavorited(getUserID(), typeOf, res["name"], lastFmID)))
 
 
 @app.route('/favorite/', methods = ['POST'])
