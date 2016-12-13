@@ -30,6 +30,9 @@ def getItemUri(q_type, name, artist=None):
         tuple: first element is a string status ("Error" or "OK"). Second
             element is the item's spotify URI string.
 
+        An "OK" status is returned with an empty URI when the item wasn't found
+        in the Spotify library.
+
         An "Error" status is returned, along with an empty URI, if an HTTP,
         URL, or API error was encountered during operation.
 
@@ -39,6 +42,8 @@ def getItemUri(q_type, name, artist=None):
     item = search(q_type, name, artist)
     if item[0] == "Error":
         return ("Error", "")
+    if item[1] == {}:
+        return ("OK", "")
     return ("OK", item[1]["uri"])
 
 
