@@ -57,13 +57,16 @@ def contentGen(typeOf, lastFmID): #id is a string
                 lastContent = lastFm.getAlbumInfo(None, lastDict[0], lastDict[1])
         else:
             lastContent = lastFm.getSongInfo(None, lastFmKey)
-    
-    if typeOf == "song" or typeOf == "album":
-        name = lastContent["name"]
-        art = lastContent["artist"]
+    if lastContent[0] == "Error":
+        print "contentGen retrieval error - That's no good"
+        return None
     else:
-        name = lastContent["name"]
-        art = None
-    spotContent = spotify.getItemUri(typeOf, name, art)
-    
-    return [lastContent, spotContent]
+        lastDict = lastContent[1]
+        if typeOf == "song" or typeOf == "album":
+            name = lastDict["name"]
+            art = lastDict["artist"]
+        else:
+            name = lastDict["name"]
+            art = None
+        spotContent = spotify.getItemUri(typeOf, name, art)
+        return [lastDict, spotContent]
