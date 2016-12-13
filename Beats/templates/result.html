@@ -4,18 +4,37 @@
 
 
 {% if typeOf == "song" %}
-	{{content}}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<img src="{{content[0]['album']['image']}}">
+			</div>
+		</div>
+	</div>
+	{% for i in content[0] %}
+	{{i}}:{{content[0][i]}}<br>
+	{% endfor %}
 {% endif %}
 
-{{content}}
 
 {% if typeOf == "artist" %}
-	formatting for artists page
+	{% for i in content[0] %}
+	{{i}}:{{content[0][i]}}<br>
+	{% endfor %}
 {% endif %}
 
 
 {% if typeOf == "album" %}
-	formatting for album page
+	<div class="container">	
+		<div class ="row">
+			<div class ="col-md 4">
+				<img src="{{content[0]['image']}}">
+			</div>
+		</div>
+	</div>
+	{% for i in content[0] %}
+	{{i}}:{{content[0][i]}}<br>
+	{% endfor %}
 {% endif %}
 
 
