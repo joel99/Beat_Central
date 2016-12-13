@@ -17,7 +17,7 @@
 	{% else %}
 	{% for i in artists %}
 	<br>
-	<a href="/result/artist/{{i['mbid']}}">
+	<a href="/result/artist/1{{i['mbid']}}">
 	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
 		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
@@ -41,7 +41,7 @@
 	<center><h3> No search results found. </h3></center>
 	{% else %}
 	{% for i in albums %}
-	<a href="/result/album/{{i['mbid']}}">
+	<a href="/result/album/1{{i['mbid']}}">
 	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
 		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
