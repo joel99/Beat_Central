@@ -88,7 +88,7 @@ def addFavorite(userID, favType, entry, entryID):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
     #first get the relevant info
-    cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
+    cmd = "SELECT fav%ss FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     oldFavs = c.execute(cmd).fetchone() #is the string
     entry = entry + '~~' + entryID
     if len(oldFavs) > 0:
