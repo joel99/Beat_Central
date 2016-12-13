@@ -3,17 +3,18 @@
 {% block content %}
 
 
-{% if typeOf == "Song" %}
-	formatting for song page
+{% if typeOf == "song" %}
+	{{content}}
 {% endif %}
 
+{{content}}
 
-{% if typeOf == "Artist" %}
+{% if typeOf == "artist" %}
 	formatting for artists page
 {% endif %}
 
 
-{% if typeOf == "Album" %}
+{% if typeOf == "album" %}
 	formatting for album page
 {% endif %}
 

@@ -44,7 +44,6 @@ def search():
     matchedAlbums = content.getSearch(query, 2)
     return render_template('search.html', songs = matchedSongs, artists = matchedArtists, albums = matchedAlbums, query = query)
 
-
 @app.route('/settings/')
 def settings():
     if (not isLoggedIn()):
@@ -85,10 +84,9 @@ def searchResult():
     return render_template('search.html', isLoggedIn = str(isLoggedIn()), songList = searchRet[0], artistList = searchRet[1], albumList = searchRet[2], songStatus = stats[0], artistStat = stats[1], albumStats = stats[2])
 
 @app.route('/result/<typeOf>/<lastFmID>')
-def resultPage():
-    res = content.resultGen(typeOf, lastFmID)
-    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = str(utils.isFavorited(getUserID(), typeOf, res["name"], lastFmID)))
-
+def resultPage(typeOf,lastFmID):
+    res = content.contentGen(typeOf, lastFmID)
+    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = str(utils.isFavorited(getUserID(), typeOf, res[0]["name"], lastFmID)))
 
 @app.route('/favorite/', methods = ['POST'])
 def favorite(favType, entry, entryID):

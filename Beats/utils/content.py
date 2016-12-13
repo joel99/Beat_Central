@@ -42,11 +42,11 @@ def contentGen(typeOf, lastFmID): #id is a string
     lastFmKey = lastFmID[1:]
     if ided == "1":
         if typeOf == "song":
-            lastContent = lastFm.getSongInfo(lastFmID)
+            lastContent = lastFm.getSongInfo(lastFmKey)
         elif typeOf == "artist":
-            lastContent = lastFm.getArtistInfo(lastFmID)
+            lastContent = lastFm.getArtistInfo(lastFmKey)
         else:
-            lastContent = lastFm.getAlbumInfo(lastFmID)
+            lastContent = lastFm.getAlbumInfo(lastFmKey)
             #type, name, artist
     else:
         if typeOf == "song" or typeOf == "album":

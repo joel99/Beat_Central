@@ -78,7 +78,7 @@ def changePass(userID, newPass):
 def isFavorited(userID, favType, entry, entryID):
     db = sqlite3.connect("data/main.db")
     c = db.cursor()
-    cmd = "SELECT fav%s FROM UserInfo WHERE UserID = %d;"%(favType, userID)
+    cmd = "SELECT fav%ss FROM UserInfo WHERE UserID = %d;"%(favType, userID)
     favs = c.execute(cmd).fetchone() #is the string
     db.close()
     return entry + entryID in favs[0].split('::')
