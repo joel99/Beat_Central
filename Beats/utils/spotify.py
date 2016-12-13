@@ -44,6 +44,7 @@ def auth(client_id, client_secret):
     return True
 """
 
+
 def search(q_type, name, artist=None):
     """ Get 1st search result for album, artist, or track.
 
@@ -81,6 +82,7 @@ def search(q_type, name, artist=None):
     resp_dict = json.loads(resp["object"].read())
     return ("OK", build_result_dict(q_type, resp_dict[q_type + "s"]["items"]))
 
+
 def build_result_dict(q_type, item_list):
     if len(item_list) == 0:
         return {}
@@ -91,12 +93,13 @@ def build_result_dict(q_type, item_list):
         res_dict["artist"] = item["artists"][0]["name"]
     return res_dict
 
+
 def getItemUri(q_type, name, artist=None):
     """ Returns the Spotify uri for an item
 
     Args:
-        
-    
+
+    """
     item = search(q_type, name, artist)
     if item[0] == "Error":
         return ("Error", "")
