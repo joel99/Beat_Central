@@ -11,8 +11,8 @@
 import rest
 import json
 
-# API_KEY is temporarily harcoded, will later be moved to outside file
-API_KEY = "42becc236bc618eb1ba223b81fa9e4f8"
+# API_KEY is loaded from json file upon first request in app.py
+API_KEY = ""
 API_ROOT = "http://ws.audioscrobbler.com/2.0/"
 
 
@@ -623,3 +623,7 @@ def build_API_error(res_dict, function, mbid=None, name=None, artist=None):
     err_str += "\t Code: " + str(res_dict["error"])
     err_str += "; Message: " + res_dict["message"]
     return err_str
+
+def setKey(key):
+    global API_KEY
+    API_KEY = key

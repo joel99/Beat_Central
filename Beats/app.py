@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, url_for, redirect
 
-from utils import content, utils
+from utils import content, utils, lastFm
+from json import load
 
 app = Flask(__name__)
 app.secret_key = "secrets"
@@ -113,6 +114,16 @@ def favorites():
     return render_template('favorites.html', isLoggedIn = str(isLoggedIn()), favSongs = songs, favArtists = artists, favAlbums = albums)
     
 #HELPERS-----------------------------------------------------------------------
+
+#lastFm api_key retrieval
+@app.before_first_request
+def retrieve_key():
+    # This code is executed upon 1st request,
+    # before first request is processed.
+    key = ""
+    with open("data/key.json") as key_file:
+        key = load(key_file)["key"]
+    lastFm.setKey(key)
 
 #Login Helpers
 def isLoggedIn():
