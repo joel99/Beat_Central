@@ -17,6 +17,7 @@
 	{% else %}
 	{% for i in artists %}
 	<br>
+	<a href="/result/artist/{{i['mbid']}}">
 	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
 		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
@@ -29,6 +30,7 @@
 			<h3>{{i['name']}}</h3>
 		</div>
 	</div>
+	</a>
 	<br>
 	{% endfor %}
 	{% endif %}
@@ -39,6 +41,7 @@
 	<center><h3> No search results found. </h3></center>
 	{% else %}
 	{% for i in albums %}
+	<a href="/result/album/{{i['mbid']}}">
 	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
 		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
@@ -51,6 +54,7 @@
 			<h3>{{i['name']}}</h3>
 		</div>
 	</div>
+	</a>
 	<br>
 	{% endfor %}
 	{% endif %}
@@ -61,11 +65,14 @@
 	<center><h3> No search results found. </h3></center>
 	{% else %}
 	{% for i in songs %}
-	{{i}}
+	{% if i['mbid'] == '' %}
+	<a href="/result/song/0{{i['name']}}{{i['artist']}}">
+	{% else %}
+	<a href="/result/song/1{{i['mbid']}}">
+	{% endif %}
 	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
 		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
-			<a href="/result/Song
 			<img class="img-responsive img-circle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png">
 			{% else %}
 			<img class="img-responsive img-circle" src="{{i['image']}}">
@@ -75,6 +82,7 @@
 			<h3>{{i['name']}}</h3>{{i['artist']}}
 		</div>
 	</div>
+	</a>
 	<br>
 	{% endfor %}
 	{% endif %}
