@@ -34,9 +34,36 @@ def getFavorites(typeOf, userID):
 
     return favList	
 
-def contentGen(typeOf, lastFmID):
-    lastContent = lastFm.getSongInfo(lastFmID)
-    #lastContent["name"] = 
-    #type, name, artist
-    spotContent = spotify.getItemUri(typeOf.lower())
+def contentGen(typeOf, lastFmID): #id is a string
+    typeOf = typeOf.lower()
+    #lastFmID is of the form: 1 for has ID, 0 for no ID.
+    #noID keys are of the form artist/name (if it has name)
+    ided = lastFmID[0]
+    lastFmKey = lastFmID[1:]
+    if ided == "1":
+        if typeOf == "song":
+            lastContent = lastFm.getSongInfo(lastFmID)
+        elif typeOf == "artist":
+            lastContent = lastFm.getArtistInfo(lastFmID)
+        else:
+            lastContent = lastFm.getAlbumInfo(lastFmID)
+            #type, name, artist
+    else:
+        if typeOf == "song" or typeOf == "album":
+            lastList = lastFmKey.split('/')
+            if typeOf == "song":
+                lastContent = lastFm.getSongInfo(None, lastDict[0], lastDict[1])
+            else:
+                lastContent = lastFm.getAlbumInfo(None, lastDict[0], lastDict[1])
+        else:
+            lastContent = lastFm.getSongInfo(None, lastFmKey)
+    
+    if typeOf == "song" or typeOf == "album":
+        name = lastContent["name"]
+        art = lastContent["artist"]
+    else:
+        name = lastContent["name"]
+        art = None
+    spotContent = spotify.getItemUri(typeOf, name, art)
+    
     return [lastContent, spotContent]

@@ -69,3 +69,9 @@ anthonyC -- 2016-12-12 11:43
 - Updated search page with more information
 
 ==============================
+
+==============================
+ joelY -- 2016-12-12 20:30
+
+- Added mbid check to page generation, complete page generation info piping
+==============================

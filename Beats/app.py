@@ -14,13 +14,6 @@ def root():
         #add processing
         return render_template('home.html', isLoggedIn = True)
 	
-@app.route('/toolbar/', methods = ['POST'])
-def toolBar():
-    d = request.form
-    if (d["type"] == "Log In"):
-            return redirect(url_for('root'))
-    return redirect(url_for('home'))
-
 @app.route('/logout/')
 def outdir():
     if isLoggedIn():
@@ -91,7 +84,7 @@ def searchResult():
     
     return render_template('search.html', isLoggedIn = str(isLoggedIn()), songList = searchRet[0], artistList = searchRet[1], albumList = searchRet[2], songStatus = stats[0], artistStat = stats[1], albumStats = stats[2])
 
-@app.route('/result/<typeOf>/<lastFmID>_<spotifyID>')
+@app.route('/result/<typeOf>/<lastFmID>')
 def resultPage():
     res = content.resultGen(typeOf, lastFmID)
     return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = str(utils.isFavorited(getUserID(), typeOf, lastFmID)))
