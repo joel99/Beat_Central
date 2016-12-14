@@ -9,6 +9,7 @@
     <title> Beat Central </title>
   </head>
   <body id="dadbod">
+   <div id="warp">
     <!--TOOLBAR-->
    <div class="container-fluid" style="background:black;">
     <nav class = "navbar navbar-default">     
@@ -125,15 +126,15 @@
       {% endblock %}
     </div>
     <br><br>
-
     <!-- foot by the roll -->
-    <footer class="footer">
-      <div class="container">
+    <div class="navbar navbar-default navbar-fixed-bottom">
+	<div class="container">
 	<span class="text-primary" stlye="float:left;">Created by Team BassDrop</span>
         <span class="text-muted" style="float:right;">Site developed and created using last.fm API</span>
-      </div>
-    </footer>
+	</div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+   </div>
   </body>
 </html>
