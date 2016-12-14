@@ -4,13 +4,91 @@
 
 
 {% if typeOf == "song" %}
-	<div class="container">
+	<div class="container" style ="margin-top:40px;">
+		<div class ="jumbotron">
+			<center><h1>{{content[0]['name']}}</h1></center>
+		</div>
 		<div class="row">
-			<div class="col-md-4">
-				<img src="{{content[0]['album']['image']}}">
+			<div class="col-md-5">
+				<center><img src="{{content[0]['album']['image']}}" class="img-circle img-responsive"></center>
+				<div id="infobox">
+				<h2>Information</h2><hr>
+				<h4>
+				Artist: {{content[0]['artist']}}<br>
+				Album: {{content[0]['album']['name']}}<br>
+				Number of Last.fm Listeners: {{content[0]['listeners']}}<br>
+				Last.fm Playcount: {{content[0]['playcount']}} times <br>
+				Duration: {{(content[0]['duration']|float / 60000) | round(0,'floor') |int}} Minutes {{((content[0]['duration']|float / 60000) - (content[0]['duration']|float / 60000) | round(0,'floor') / 60) |int }} Seconds <br>
+				Tags:
+				{% for i in content[0]['tags'] %}
+				{{i}}
+				{% endfor %}
+				</div>
+			</div>
+			<div class="col-md-6">
+				{% if content[0]['summary'] == NONE %}
+					NO FUCKING SUMMARY PIECE OF DIP SHIT
+				{% else %}
+				<h1>Summary about the song!</h1><hr>
+				<p style="text-indent:40px;">{{content[0]['wiki'].split('<')[0]}}</p>
+				{% endif %}
+				<br>
 			</div>
 		</div>
 	</div>
+	<div class="container">
+  <br>
+  {% for i in content[0]['similar'][1] %}
+	{{i}}<br>
+	{% endfor %}
+  <div id="similar" class="carousel slide" data-ride="carousel">
+    <!-- the dots -->
+    <ol class="carousel-indicators">
+	   <li data-target="similar" data-slide-to="0" class="active"></li>
+	{% for i in content[0]['similar'][1] %}
+		{% if loop.index == 1 %}
+		<li data-target="similar" data-slide-to="0" class="active"></li>
+		{% endif %}
+		<li data-target="similar" data-slide-to="{{loop.index -1}}"></li>
+	{% endfor %}
+    </ol>
+
+    <!-- images and simple info -->
+    <div class="carousel-inner" role="listbox">
+	  {% for i in content[0]['similar'][1] %}
+	  
+	  {% if loop.index  == 1 %}
+      <div class="item active">
+        <center><img src="{{i['image']}}"></center>
+		<div class="carousel-caption">
+			<h3>{{i['name']}}</h3>
+			<p>{{i['artist']}}</p>
+		</div>
+      </div>
+	  {% endif %}
+	  
+	  <div class="item">
+        <center><img src="{{i['image']}}"></center>
+		<div class="carousel-caption">
+			<h3>{{i['name']}}</h3>
+			<p>{{i['artist']}}</p>
+		</div>
+      </div>
+	  {% endfor %}
+      
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#similar" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#similar" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
 	{% for i in content[0] %}
 	{{i}}:{{content[0][i]}}<br>
 	{% endfor %}

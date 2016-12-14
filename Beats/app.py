@@ -91,7 +91,7 @@ def resultPage(typeOf,lastFmID):
         isfav = str(utils.isFavorited(getUserID(), typeOf, res[0]["name"], lastFmID))
     else:
         isfav = None
-    return render_template('result.html', isLoggedIn = str(isLoggedIn()), content = res, isFavorited = isfav)
+    return render_template('result.html', isLoggedIn = str(isLoggedIn()), typeOf = typeOf, content = res, isFavorited = isfav)
 
 @app.route('/favorite/', methods = ['POST'])
 def favorite(favType, entry, entryID):
