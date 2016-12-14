@@ -224,7 +224,6 @@ def songSearch(name, artist=None, page=1):
     return ("OK", results_list)
 
 
-
 # # # --- ITEM INFO RETRIEVAL --- # # #
 
 
@@ -282,7 +281,7 @@ def getTopAlbumsByName(name, pages=1):
 def setKey(key):
     global API_KEY
     API_KEY = key
-    
+
 
 # # # # # ====== HELPER METHODS ====== # # # # #
 
@@ -586,26 +585,7 @@ def build_similar_tracks_list(track_list):
         if "mbid" in track["artist"]:
             entry["artist_mbid"] = track["artist"]["mbid"]
         if "image" in track:
-            img_tuple = get_small_image(track)
-            if img_tuple[0] != "":
-                # aka size is extralarge, large, or medium only
-                (entry["image"], entry["image_size"]) = img_tuple
-        similar_list.append(entry)
-    return similar_list
-
-
-def build_similar_tracks_list(track_list):
-    similar_list = []
-    # Possible that for no similarities, list will stay empty
-    for track in track_list:
-        entry = {"name": track["name"], "artist": track["artist"]["name"]}
-        if "mbid" in track:
-            # DONT ASSUME mbid WILL BE PRESENT (most likely it won't)
-            entry["mbid"] = track["mbid"]
-        if "mbid" in track["artist"]:
-            entry["artist_mbid"] = track["artist"]["mbid"]
-        if "image" in track:
-            img_tuple = get_small_image(track)
+            img_tuple = get_info_image(track)
             if img_tuple[0] != "":
                 # aka size is extralarge, large, or medium only
                 (entry["image"], entry["image_size"]) = img_tuple
@@ -622,13 +602,12 @@ def build_artist_top_item_list(item_list):
             # DONT ASSUME mbid WILL BE PRESENT (most likely it won't)
             entry["mbid"] = item["mbid"]
         if "image" in item:
-            img_tuple = get_small_image(item)
+            img_tuple = get_info_image(item)
             if img_tuple[0] != "":
                 # aka size is extralarge, large, or medium only
                 (entry["image"], entry["image_size"]) = img_tuple
         top_item_list.append(entry)
     return top_item_list
-
 
 
 # # # --- GENERAL HELPER METHODS --- # # #
