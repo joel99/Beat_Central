@@ -42,6 +42,12 @@ body{
   margin:0 auto;
 }
 
+.tracks{
+  padding-right: 20px;
+  border-right: 2px solid white;
+  display: inline;
+}
+
 #sim{
 	text-shadow: 2px 2px black;
 }
