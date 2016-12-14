@@ -53,10 +53,13 @@ body{
   margin:0 auto;
 }
 
-.tracks{
-  padding-right: 20px;
-  border-right: 2px solid white;
-  display: inline;
+.track{
+	min-height: 20px;
+	padding-bottom: 10px;
+	padding-top;
+	min-width: 400px;
+	display: inline-block;
+	text-shadow: 2px 2px black;
 }
 
 #sim{
@@ -66,20 +69,6 @@ body{
 #infobox{
 	margin-top: 20px;
 }
-
-#oo{
-	color: white;
-	animation-name: yes;
-	animation-duration: 10s;
-	animation-delay: 3s;
-}
-
-@keyframes yes{
-	0% {color: white;}
-	50% {color: yellow;}
-	100% {color: white;}
-}
-
 @keyframes fade{
 	0% {opacity: 0;}
 	100% {opacity: 1;}

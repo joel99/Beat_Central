@@ -9,7 +9,6 @@
     <title> Beat Central </title>
   </head>
   <body id="dadbod">
-   <div id="warp">
     <!--TOOLBAR-->
    <div class="container-fluid" style="background:black;">
     <nav class = "navbar navbar-default">     
@@ -106,7 +105,7 @@
     <br>
     <div class = "container">
       <div class = "jumbotron">
-		<center><h1 id="oo">Search for Music!<h1></center>
+		<center><h1>Search for Music!<h1></center>
 			<div class = "container">
 			<form action = "/search/" class = "input-group" method = "GET">
 				<input class = "form-control" name="query" type = "text" required>
@@ -127,7 +126,7 @@
     </div>
     <br><br>
     <!-- foot by the roll -->
-    <div class="navbar navbar-default navbar-fixed-bottom" style="background:black; opacity: 0.6; min-height:24px;">
+    <div class="navbar navbar-default navbar-fixed-bottom" style="background:black; opacity: 1; min-height:24px;">
 	<div class="container">
 	<span class="text-primary" stlye="float:left;">Created by Team BassDrop</span>
         <span class="text-muted" style="float:right;">Site developed and created using last.fm API</span>
@@ -135,6 +134,5 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
-   </div>
   </body>
 </html>

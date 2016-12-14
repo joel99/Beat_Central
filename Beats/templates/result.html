@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
+<div class="container">
   <br>
   <center><h1>Similar Songs!</h1><hr width="200px"></center>
   <div id="similar" class="carousel slide" data-ride="carousel">
@@ -92,12 +92,13 @@
       <span class="sr-only">Next</span>
     </a>
 	</div>
-  </div>
-</div>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	</div>
+	</div>
+	<br><br>
+	<!--<br><br><br><br><br><br><br><br><br><br><br><br>
 	{% for i in content[0] %}
 	{{i}}:{{content[0][i]}}<br>
-	{% endfor %}
+	{% endfor %}-->
 {% endif %}
 
 
@@ -112,8 +113,8 @@
 				<div id="infobox">
 				<h2>Information</h2><hr>
 				<h4>
-				Number of Last.fm Listeners: {{content[0]['listeners']}}<br>
-				Last.fm Playcount: {{content[0]['playcount']}} times <br>
+				Number of Last.fm Listeners: {{content[0]['listeners']}}<br><br>
+				Last.fm Playcount: {{content[0]['playcount']}} times <br><br>
 				Tags:
 				{% for i in content[0]['tags'] %}
 				<button class="btn btn-primary">{{i}}</button>
@@ -127,16 +128,78 @@
 				{% elif content[0]['bio'].split('<')[0] == ' ' %}
 					<h2>No biography found.</h2>
 				{% else %}
-				<p style="text-indent:40px;">{{content[0]['bio'].split('<')[0]}}</p>
+				<p style="text-indent:40px;">{{content[0]['summary'].split('<')[0]}}</p>
+				<a style="color:lightblue;"role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+					See More!
+				</a>
+				<div class="collapse" id="collapseExample">
+						{{content[0]['bio'][(content[0]['summary'].split('<')[0])|length:].split('<')[0]}}<br>
+					</div>
+				</div>
 				{% endif %}
 				<br>
 			</div>
 		</div>
 	</div>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div class="container">
+		<br>
+			<center><h1>Similar Artists!</h1><hr width="200px"></center>
+				<div id="similar" class="carousel slide" data-ride="carousel">
+		<!-- the dots -->
+			<ol class="carousel-indicators">
+				{% for i in content[0]['similar'] %}
+				{% if loop.index == 1 %}
+				<li data-target="#similar" data-slide-to="0" class="active"></li>
+				{% else %}
+				<li data-target="#similar" data-slide-to="{{loop.index-1}}"></li>
+				{% endif %}
+				{% endfor %}
+			</ol>
+
+    <!-- images and simple info -->
+    <div class="carousel-inner" role="listbox">
+	  {% for i in content[0]['similar'] %}
+	  
+	  {% if loop.index  == 1 %}
+      <div class="item active">
+		<center><img src="{{i['image']}}"></center>
+		<div class="carousel-caption">
+			<h3>{{i['name']}}</h3>
+		</div></a>
+      </div>
+
+	  {% else %}
+	  <div class="item">
+	    <center><img src="{{i['image']}}"></center>
+		<div class="carousel-caption" id="sim">
+			<h3>{{i['name']}}</h3>
+		</div>
+		</a>
+      </div>
+	  </a>
+	  {% endif %}
+	  {% endfor %}
+      
+    </div>
+
+    <!-- Left and right controls -->
+	<div class="carousel-controls">
+    <a class="left carousel-control" href="#similar" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#similar" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+	</div>
+	</div>
+	</div>
+	<br><br>
+	<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	{% for i in content[0] %}
 	{{i}}:{{content[0][i]}}<br>
-	{% endfor %}
+	{% endfor %}-->
 {% endif %}
 
 
@@ -168,20 +231,29 @@
 					<h2>No summary found.</h2>
 				{% else %}
 				<p style="text-indent:40px;">{{content[0]['wiki'].split('<')[0]}}</p>
+				<a style="color:lightblue;" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+					See More!
+				</a>
+				<div class="collapse" id="collapseExample">
+						{{content[0]['wiki'][(content[0]['summary'].split('<')[0])|length:].split('<')[0]}}<br>
+					</div>
+				</div>
 				{% endif %}
 				<br>
 			</div>
 		</div>
 	</div>
-	<center><h1>Tracks</h1><hr width="200px"></center>
-	{% for i in content[0]['tracks'] %}
-	<p class="tracks">{{i['name']}}</p>  {{(i['duration']|float / 60)| int}}:<br>
-	{% endfor %}
-	
-	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<div class="container">
+		<center><h1>Tracks</h1><hr width="200px"></center>
+		{% for i in content[0]['tracks'] %}
+		 <center>{{i['name']}}</center><hr width="50px">
+		{% endfor %}
+	</div>
+	<br><br>
+	<!--<br><br><br><br><br><br><br><br><br><br>
 	{% for i in content[0] %}
 	{{i}}:{{content[0][i]}}<br>
-	{% endfor %}
+	{% endfor %}-->
 {% endif %}
 
 

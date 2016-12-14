@@ -82,3 +82,11 @@ anthonyC -- 2016-12-12 11:43
 - Created result pages for albums, songs, and artists.
 
 ==============================
+
+==============================
+ anthonyC -- 2016-12-14 18:45
+
+- Updated result pages with formatting.
+
+============================== 
+
