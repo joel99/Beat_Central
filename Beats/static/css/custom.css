@@ -35,6 +35,10 @@ body{
 	border-bottom: 2px solid yellow;
 }
 
+#infobox{
+	margin-top: 20px;
+}
+
 #oo{
 	color: white;
 	animation-name: yes;
