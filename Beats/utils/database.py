@@ -124,5 +124,5 @@ def getFavorites(userID, favType):
     strDict = sel[0].split('::')
     ret = []
     for entry in strDict:
-        ret.add(entry.split('~~'))
+        ret.append(entry.split('~~'))
     return ret
