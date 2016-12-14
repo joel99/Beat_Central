@@ -3,13 +3,17 @@
 	padding: 15px 15px 0;
 }
 
+h1,h2,h3,h4{
+	text-shadow: 2px 2px black;
+}
+
 body{
 	background: url('http://www.userlogos.org/files/backgrounds/ctach1991/Clouds2560x1600.jpg');
 }
 
+
 .container{
-	color: white;
-	text-shadow: 2px 2px black;
+	color: white;	
 }
 
 .jumbotron{
@@ -19,6 +23,7 @@ body{
 .picture{
 	border-right: 2px solid white;
 	margin-right: 15px;
+
 }
 
 .navbar{
@@ -34,6 +39,13 @@ body{
 .nav.navbar-nav li a:hover{
 	color: white;
 	border-bottom: 2px solid yellow;
+}
+
+.footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: black;
 }
 
 .carousel-controls{

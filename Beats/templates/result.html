@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<footer class<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
 
 {% if typeOf == "song" %}
 	<div class="container" style ="margin-top:40px;">
@@ -62,7 +70,11 @@
         <a href="/result/song/1{{i['mbid']}}"><center><img src="{{i['image']}}"></center>
 		<div class="carousel-caption">
 			<h3>{{i['name']}}</h3>
-			<p>{{i['artist']}}</p>
+		<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>	<p>{{i['artist']}}</p>
 		</div></a>
       </div>
 
@@ -70,7 +82,8 @@
 	  <div class="item">
 		<a href="/result/song/1{{i['mbid']}}">
 	    <center><img src="{{i['image']}}"></center>
-		<div class="carousel-caption" id="sim">
+		<div class="carouse
+summary:Michael l-caption" id="sim">
 			<h3>{{i['name']}}</h3>
 			<p>{{i['artist']}}</p>
 		</div>
@@ -80,7 +93,7 @@
 	  {% endif %}
 	  {% endfor %}
       
-    </div>
+    </div>une 25, 2009 in Los Angeles, California), of
 
     <!-- Left and right controls -->
 	<div class="carousel-controls">
@@ -103,13 +116,6 @@
 
 
 {% if typeOf == "artist" %}
-	{% for i in content[0] %}
-	{{i}}:{{content[0][i]}}<br>
-	{% endfor %}
-{% endif %}
-
-
-{% if typeOf == "album" %}
 	<div class="container" style ="margin-top:40px;">
 		<div class ="jumbotron">
 			<center><h1>{{content[0]['name']}}</h1></center>
@@ -120,9 +126,50 @@
 				<div id="infobox">
 				<h2>Information</h2><hr>
 				<h4>
-				Artist: {{content[0]['artist']}}<br>
 				Number of Last.fm Listeners: {{content[0]['listeners']}}<br>
 				Last.fm Playcount: {{content[0]['playcount']}} times <br>
+				Tags:
+				{% for i in content[0]['tags'] %}
+				<button class="btn btn-primary">{{i}}</button>
+				{% endfor %}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<h1>Summary about the song!</h1><hr>
+				{% if content[0]['bio'] == NONE %}
+					<h2>No biography found.</h2>
+				{% elif content[0]['bio'].split('<')[0] == ' ' %}
+					<h2>No biography found.</h2>
+				{% else %}
+				<p style="text-indent:40px;">{{content[0]['bio'].split('<')[0]}}</p>
+				{% endif %}
+				<br>
+			</div>
+		</div>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	{% for i in content[0] %}
+	{{i}}:{{content[0][i]}}<br>
+	{% endfor %}
+{% endif %}
+
+
+{% if typeOf == "album" %}
+	<div class="container" style ="margin-top:40px;">
+		<div class ="jumbot
+summary:Michael ron">
+			<center><h1>{{content[0]['name']}}</h1></center>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<center><img src="{{content[0]['image']}}" class="img-circle img-responsive"></center>
+				<div id="infobox">
+				<h2>Information</h2><hr>
+				<h4>
+				Artist: {{content[0]['artist']}}<br>
+				Number of Last.fm Listeners: {{content[0]['listeners']}}<br>
+				Last.fm Pl
+aycount: {{content[0]['playcount']}} times <br>
 				Tags:
 				{% for i in content[0]['tags'] %}
 				<button class="btn btn-primary">{{i}}</button>
@@ -144,10 +191,10 @@
 	</div>
 	<center><h1>Tracks</h1><hr width="200px"></center>
 	{% for i in content[0]['tracks'] %}
-	<p class="tracks">{{i['name']}}</p>{{i['duration']}}<br>
+	<p class="tracks">{{i['name']}}</p>  {{(i['duration']|float / 60)| int}}:<br>
 	{% endfor %}
 	
-	<br>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
 	{% for i in content[0] %}
 	{{i}}:{{content[0][i]}}<br>
 	{% endfor %}

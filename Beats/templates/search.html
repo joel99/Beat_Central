@@ -13,12 +13,12 @@
   	<center><h2>Artists</h2></center>
 	<hr width="200px">
 	{% if artists == "Empty" %}
-	<center><h3> No search results found. </h3></center>
+        <center><h3> No search results found. </h3></center>
 	{% else %}
 	{% for i in artists %}
 	<br>
 	<a href="/result/artist/1{{i['mbid']}}">
-	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
+	<div class ="row entry" style="animation:fade {{loop.index|float / 4}}s;">
 		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
 			<img class="img-responsive img-circle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png">
@@ -42,7 +42,7 @@
 	{% else %}
 	{% for i in albums %}
 	<a href="/result/album/1{{i['mbid']}}">
-	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
+	<div class ="row entry" style="animation:fade {{loop.index|float / 4}}s;">
 		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
 			<img class="img-responsive img-circle" src ="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png">
@@ -70,7 +70,7 @@
 	{% else %}
 	<a href="/result/song/1{{i['mbid']}}">
 	{% endif %}
-	<div class ="row entry" style="animation:fade {{loop.index * 1}}s;">
+	<div class ="row entry" style="animation:fade {{loop.index|float / 4}}s;">
 		<div class="picture col-md-1 col-md-offset-3">
 			{% if i['image'] == NONE %}
 			<img class="img-responsive img-circle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png">

@@ -76,7 +76,9 @@ anthonyC -- 2016-12-12 11:43
 - Added mbid check to page generation, complete page generation info piping
 ==============================
 
-===============================
+==============================
  anthonyC -- 2016-12-14 10:59
 
-- Created result pages for albums and songs
+- Created result pages for albums, songs, and artists.
+
+==============================
