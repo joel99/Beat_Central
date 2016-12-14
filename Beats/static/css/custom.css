@@ -35,6 +35,13 @@ body{
 	border-bottom: 2px solid yellow;
 }
 
+.carousel-controls{
+  position:relative; 
+  width:400px;
+  margin:0 auto;
+}
+
+
 #infobox{
 	margin-top: 20px;
 }
