@@ -1,15 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<footer class<footer class="footer">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-      </div>
-    </footer>="footer">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-      </div>
-    </footer>
 
 {% if typeOf == "song" %}
 	<div class="container" style ="margin-top:40px;">
@@ -70,11 +61,7 @@
         <a href="/result/song/1{{i['mbid']}}"><center><img src="{{i['image']}}"></center>
 		<div class="carousel-caption">
 			<h3>{{i['name']}}</h3>
-		<footer class="footer">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-      </div>
-    </footer>	<p>{{i['artist']}}</p>
+		        <p>{{i['artist']}}</p>
 		</div></a>
       </div>
 
@@ -82,8 +69,7 @@
 	  <div class="item">
 		<a href="/result/song/1{{i['mbid']}}">
 	    <center><img src="{{i['image']}}"></center>
-		<div class="carouse
-summary:Michael l-caption" id="sim">
+		<div class="carousel-caption" id="sim">
 			<h3>{{i['name']}}</h3>
 			<p>{{i['artist']}}</p>
 		</div>
@@ -93,7 +79,7 @@ summary:Michael l-caption" id="sim">
 	  {% endif %}
 	  {% endfor %}
       
-    </div>une 25, 2009 in Los Angeles, California), of
+    </div>
 
     <!-- Left and right controls -->
 	<div class="carousel-controls">
@@ -156,8 +142,7 @@ summary:Michael l-caption" id="sim">
 
 {% if typeOf == "album" %}
 	<div class="container" style ="margin-top:40px;">
-		<div class ="jumbot
-summary:Michael ron">
+		<div class ="jumbotron">
 			<center><h1>{{content[0]['name']}}</h1></center>
 		</div>
 		<div class="row">
@@ -168,8 +153,7 @@ summary:Michael ron">
 				<h4>
 				Artist: {{content[0]['artist']}}<br>
 				Number of Last.fm Listeners: {{content[0]['listeners']}}<br>
-				Last.fm Pl
-aycount: {{content[0]['playcount']}} times <br>
+				Last.fm Playcount: {{content[0]['playcount']}} times <br>
 				Tags:
 				{% for i in content[0]['tags'] %}
 				<button class="btn btn-primary">{{i}}</button>
