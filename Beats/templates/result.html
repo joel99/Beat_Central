@@ -18,7 +18,7 @@
 				Album: {{content[0]['album']['name']}}<br>
 				Number of Last.fm Listeners: {{content[0]['listeners']}}<br>
 				Last.fm Playcount: {{content[0]['playcount']}} times <br>
-				Duration: {{(content[0]['duration']|float / 60000) | round(0,'floor') |int}} Minutes {{((content[0]['duration']|float / 60000) - (content[0]['duration']|float / 60000) | round(0,'floor') / 60) |int }} Seconds <br>
+				Duration: {{(content[0]['duration']|float / 60000) | round(0,'floor') |int}} Minutes {{(((content[0]['duration']|float / 60000) - (content[0]['duration']|float / 60000) | round(0,'floor')) * 60) | int }} Seconds <br>
 				Tags:
 				{% for i in content[0]['tags'] %}
 				{{i}}
@@ -26,10 +26,12 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				{% if content[0]['summary'] == NONE %}
-					NO FUCKING SUMMARY PIECE OF DIP SHIT
-				{% else %}
 				<h1>Summary about the song!</h1><hr>
+				{% if content[0]['summary'] == NONE %}
+					<h2>No summary found.</h2>
+				{% elif content[0]['wiki'].split('<')[0] == ' ' %}
+					<h2>No summary found.</h2>
+				{% else %}
 				<p style="text-indent:40px;">{{content[0]['wiki'].split('<')[0]}}</p>
 				{% endif %}
 				<br>
@@ -68,7 +70,7 @@
 	  <div class="item">
 		<a href="/result/song/1{{i['mbid']}}">
 	    <center><img src="{{i['image']}}"></center>
-		<div class="carousel-caption">
+		<div class="carousel-caption" id="sim">
 			<h3>{{i['name']}}</h3>
 			<p>{{i['artist']}}</p>
 		</div>

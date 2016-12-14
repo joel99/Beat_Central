@@ -9,6 +9,7 @@ body{
 
 .container{
 	color: white;
+	text-shadow: 2px 2px black;
 }
 
 .jumbotron{
@@ -41,6 +42,9 @@ body{
   margin:0 auto;
 }
 
+#sim{
+	text-shadow: 2px 2px black;
+}
 
 #infobox{
 	margin-top: 20px;
