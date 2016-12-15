@@ -47,7 +47,11 @@ def post(url, body, query=None, headers=None):
 
 def format_query(query):
     if query is not None:
-        return "?" + urlencode(query)
+        enc_query = {}
+        for key in query:
+            enc_query[unicode(key).encode("utf-8")
+                      ] = unicode(query[key]).encode("utf-8")
+        return "?" + urlencode(enc_query)
     else:
         return ""
 

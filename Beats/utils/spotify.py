@@ -39,6 +39,8 @@ def getItemUri(q_type, name, artist=None):
         The returned object's structure is as follows::
             ("<OK || Error>", "<SPOTIFY URI>")
     """
+    if q_type == "song":
+        q_type = "track"
     item = search(q_type, name, artist)
     if item[0] == "Error":
         return ("Error", "")
