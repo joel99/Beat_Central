@@ -37,6 +37,13 @@ jonalfD -- 2016-12-04 14:32
 - toolbar set up, base template set up
 ==============================
 
+============================== 
+mishaK -- 2016-12-06 14:45
+
+- get and query competed in rest
+- rest module 50% done
+==============================
+
 ==============================
  joelY -- 2016-12-06 14:55
 
@@ -50,10 +57,22 @@ jonalfD -- 2016-12-04 14:32
 - Content.py now pipes backend to frontend
 ==============================
 
+============================== 
+mishaK -- 2016-12-07 14:30
+
+- rest module completed
+==============================
+
 ==============================
  joelY -- 2016-12-07 14:49
 
 - Following database functions added
+==============================
+
+============================== 
+mishaK -- 2016-12-07 23:55
+
+- song search, albumSearch, and artist Search done in lastFm
 ==============================
 
 ==============================
@@ -61,6 +80,27 @@ jonalfD -- 2016-12-04 14:32
 
 - Updated parsing of restFm.py, search results now piped properly
 - Updated favorites parsing, syntax skeleton in notesForFrontend
+==============================
+
+============================== 
+mishaK -- 2016-12-09 14:50
+
+- getArtistInfo done in lastFm
+==============================
+
+============================== 
+mishaK -- 2016-12-11 21:40
+
+- all info retrieval (getInfo) funcs finished in lastFm
+- module is fully functional
+- needs docs, API key needs to get removed & loaded
+==============================
+
+============================== 
+mishaK -- 2016-12-12 22:10
+
+- spotify module completed and documented
+- getSpotifyURI should be used to retrieve item's uri for plugin
 ==============================
 
 ==============================
