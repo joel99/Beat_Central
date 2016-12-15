@@ -1,5 +1,5 @@
-# Beat Central by Team BassDrop (Joel Ye, Anthony Chen, Misha Kotlik)
-All Things Music
+# Beat Central by Team BassDrop
+All Things Music  --  Joel Ye, Anthony Chen, and Misha Kotlik
 
 ## Purpose
   Beat Central is a music search service for information about artists, albums, and songs. It provides the user with a treasure trove of data for their item of interest and the ability to listen to it right on the site, using last.Fm and Spotify integration. By registering with the site, users can also favorite items and easily return to them later.
