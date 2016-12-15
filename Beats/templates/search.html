@@ -5,12 +5,12 @@
 <!-- need to for loop the list and apply the specific css to each--> 
 
 <div class = "container">
-  <h2>Search Results for {{query}}</h2>
+  <center><h2>Your Search Results</h2>
 	<br>
 	{% if albums == "Empty" and artists == "Empty" and songs == "Empty" %}
 	<h3> No search results found. Try again. </h3>
 	{% else %}
-  	<center><h2>Artists</h2></center>
+  	<h2>Artists</h2></center>
 	<hr width="200px">
 	{% if artists == "Empty" %}
         <center><h3> No search results found. </h3></center>
