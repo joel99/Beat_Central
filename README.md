@@ -1,8 +1,6 @@
 # TeamBassDrop-JoelYe_AnthonyChen_MikhailKotlik
 All Things Music
 
-Intructions: The site is self-explanatory.
-
 Objective of our site: 
   To allow the user to search for information about artists, albums, and songs. The user can choose to login if they want to have a list of favorites avaliable on the favorites tab.
 
