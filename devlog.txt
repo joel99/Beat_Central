@@ -90,3 +90,7 @@ anthonyC -- 2016-12-12 11:43
 
 ============================== 
 
+==============================
+ anthonyC -- 2016-12-14 23:01
+
+- Added favoriting v0.0000001 and finished result pages

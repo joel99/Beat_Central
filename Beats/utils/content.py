@@ -26,11 +26,11 @@ def toggleFavorite(userID, favType, entry, entryUrl):
 def getFavorites(typeOf, userID):
     #first retrieve database entry, then pass to spotify
     if typeOf == 0:
-        favList = [0, database.getFavorites(userID, 'Songs')]
+        favList = [0, database.getFavorites(userID, 'Song')]
     elif typeOf == 1:
-        favList = [1, database.getFavorites(userID, 'Artists')]
+        favList = [1, database.getFavorites(userID, 'Artist')]
     else:
-        favList = [2, database.getFavorites(userID, 'Albums')]
+        favList = [2, database.getFavorites(userID, 'Album')]
 
     return favList	
 

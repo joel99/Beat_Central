@@ -87,6 +87,7 @@ def searchResult():
 @app.route('/result/<typeOf>/<lastFmID>')
 def resultPage(typeOf,lastFmID):
     res = content.contentGen(typeOf, lastFmID)
+    lastFmID = lastFmID[1:]
     if isLoggedIn():
         isfav = str(utils.isFavorited(getUserID(), typeOf, res[0]["name"], lastFmID))
     else:
@@ -96,13 +97,17 @@ def resultPage(typeOf,lastFmID):
 @app.route('/favorite/<favType>/<entry>/<entryID>')
 def favorite(favType, entry, entryID):
     entry.replace("%20", " ")
+    favType = int(favType)
     if (favType == 0): #song
-        content.toggleFavorite(getUserID(), 'Songs', entry, entryID)
+        typeOf = 'song'
+        content.toggleFavorite(getUserID(), 'song', entry, entryID)
     if (favType == 1): #artist
-        content.toggleFavorite(getUserID(), 'Artists', entry, entryID)
+        typeOf = 'artist'
+        content.toggleFavorite(getUserID(), 'artist', entry, entryID)
     if (favType == 2): #album
-        content.toggleFavorite(getUserID(), 'Albums', entry, entryID)
-    return redirect("/favorites")
+        typeOf = 'album'
+        content.toggleFavorite(getUserID(), 'album', entry, entryID)
+    return redirect("/result/" + typeOf + "/1" + entryID)
 
 @app.route('/favorites/')
 def favorites():

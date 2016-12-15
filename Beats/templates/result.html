@@ -6,11 +6,13 @@
 	<div class="container" style ="margin-top:40px;">
 		<div class ="jumbotron">
 			<center><h1>{{content[0]['name']}}
-			{% if isFavorited == True %} 
+			<a href="/favorite/0/{{content[0]['name']}}/{{content[0]['mbid']}}">
+			{% if isFavorited == 'True' %} 
 			<span class="glyphicon glyphicon-star"></span>
 			{% else %}
 			<span class="glyphicon glyphicon-star-empty"></span>
 			{% endif %}
+			</a></center></h1>
 		<div class="row">
 			<div class="col-md-5">
 				<center><img src="{{content[0]['album']['image']}}" class="img-circle img-responsive"></center>
@@ -119,12 +121,13 @@
 	<div class="container" style ="margin-top:40px;">
 		<div class ="jumbotron">
 			<center><h1>{{content[0]['name']}}
-			{% if isFavorited == True %} 
+			<a href="/favorite/1/{{content[0]['name']}}/{{content[0]['mbid']}}">
+			{% if isFavorited == 'True' %} 
 			<span class="glyphicon glyphicon-star"></span>
 			{% else %}
 			<span class="glyphicon glyphicon-star-empty"></span>
 			{% endif %}
-			</h1></center>
+			</a></h1></center>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
@@ -227,7 +230,7 @@
 		<div class ="jumbotron">
 			<center><h1>{{content[0]['name']}}
 			<a href="/favorite/2/{{content[0]['name']}}/{{content[0]['mbid']}}">
-			{% if isFavorited == True %} 
+			{% if isFavorited == 'True' %} 
 			<span class="glyphicon glyphicon-star"></span>
 			{% else %}
 			<span class="glyphicon glyphicon-star-empty"></span>
