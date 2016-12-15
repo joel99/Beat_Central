@@ -97,6 +97,7 @@ def resultPage(typeOf,lastFmID):
 def favorite(favType, entry, entryID):
     d = request.form
     entry = d["entry"]
+    entry.replace("%20", " ")
     entryID = d["entryID"]
     favType = d["favType"]
     if (favType == 0): #song
