@@ -10,10 +10,10 @@ app.secret_key = "secrets"
 @app.route("/")
 def root():
     if (not isLoggedIn()):#if you're not logged in
-        return render_template('login.html', isLoggedIn = False)
+        return render_template('login.html', isLoggedIn = str(False))
     else:
         #add processing
-        return render_template('home.html', isLoggedIn = True)
+        return render_template('home.html', isLoggedIn = str(True))
 	
 @app.route('/logout/')
 def outdir():

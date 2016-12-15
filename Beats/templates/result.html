@@ -6,13 +6,16 @@
 	<div class="container" style ="margin-top:40px;">
 		<div class ="jumbotron">
 			<center><h1>{{content[0]['name']}}
-			<a href="/favorite/0/{{content[0]['name']}}/{{content[0]['mbid']}}">
+			{% if isLoggedIn == 'True' %}
+			<a href="/favorite/0/{{content[0]['name']}}/{{content[0]['mbid']}}" style="color:yellow;">
 			{% if isFavorited == 'True' %} 
 			<span class="glyphicon glyphicon-star"></span>
 			{% else %}
 			<span class="glyphicon glyphicon-star-empty"></span>
 			{% endif %}
-			</a></center></h1>
+			</a>
+			{% endif %}
+			</center></h1>
 		<div class="row">
 			<div class="col-md-5">
 				<center><img src="{{content[0]['album']['image']}}" class="img-circle img-responsive"></center>
@@ -34,7 +37,6 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				{{content[0]['wiki'].split('<')[0]}}
 				<h2>Summary</h2><hr>
 				{% if content[0]['summary'] == NONE %}
 					<h2>No summary found.</h2>
@@ -133,13 +135,16 @@
 	<div class="container" style ="margin-top:40px;">
 		<div class ="jumbotron">
 			<center><h1>{{content[0]['name']}}
-			<a href="/favorite/1/{{content[0]['name']}}/{{content[0]['mbid']}}">
+			{% if isLoggedIn == 'True' %}
+			<a href="/favorite/1/{{content[0]['name']}}/{{content[0]['mbid']}}" style="color:yellow;">
 			{% if isFavorited == 'True' %} 
 			<span class="glyphicon glyphicon-star"></span>
 			{% else %}
 			<span class="glyphicon glyphicon-star-empty"></span>
 			{% endif %}
-			</a></h1></center>
+			</a>
+			{% endif %}
+			</h1></center>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
@@ -246,13 +251,16 @@
 	<div class="container" style ="margin-top:40px;">
 		<div class ="jumbotron">
 			<center><h1>{{content[0]['name']}}
-			<a href="/favorite/2/{{content[0]['name']}}/{{content[0]['mbid']}}">
+			{% if isLoggedIn == 'True' %}
+			<a href="/favorite/2/{{content[0]['name']}}/{{content[0]['mbid']}}" style="color:yellow;">
 			{% if isFavorited == 'True' %} 
 			<span class="glyphicon glyphicon-star"></span>
 			{% else %}
 			<span class="glyphicon glyphicon-star-empty"></span>
 			{% endif %}
-			</a></h1></center>
+			</a>
+			{% endif %}
+			</h1></center>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
