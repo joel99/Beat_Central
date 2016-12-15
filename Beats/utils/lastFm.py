@@ -3,29 +3,49 @@
 # last.fm API functions
 # Team Bass Drop - Beat Central
 
-# Please use an identifiable User-Agent header on all requests.
-# ^^^This implies that I need to keep the urrlib2 header identifier,
-#   and use add_header for our header/auth purposes?
-# Use MKotlik last.fm account for API account
-
 import rest
 import json
 
-# API_KEY is loaded from json file upon first request in app.py
+# API_KEY is loaded from data/key.json upon first request in app.py
 API_KEY = ""
 API_ROOT = "http://ws.audioscrobbler.com/2.0/"
 
-
 # NOTES:
-# NOTE: Should probably give url to lastfm in all responses
 # TODO: implement key error catching in all search/info funcs
 # TODO: test what corrections does
-# NOTE: should we link to artist from tracks in get albums? no good for spotify
-# TODO: load api_key from json config using before_first_request in app.py
-# NOTE: are listeners and playcount truly necessary?
 
+"""
+# #################################### #
+#           MODULE DIRECTORY           #
+# #################################### #
 
-# # # # # ====== MAIN METHODS ====== # # # # #
+# # # # # -- MAIN METHODS -- # # # # #
+
+# # # --- SEARCH FUNCTIONS --- # # #
+*   albumSearch(name, page=1)
+*   artistSearch(name, page=1)
+*   songSearch(name, artist=None, page=1)
+
+# # # --- ITEM INFO RETRIEVAL --- # # #
+*   getSongInfoByID(mbid)
+*   getSongInfoByName(name, artist)
+*   getAlbumInfoByID(mbid)
+*   getAlbumInfoByName(name, artist)
+*   getArtistInfoByID(mbid)
+*   getArtistInfoByName(name)
+*   getSimilarSongsByID(mbid, pages=1)
+*   getSimilarSongsByName(name, artist, pages=1)
+*   getTopTracksByID(mbid, pages=1)
+*   getTopTracksByName(name, pages=1)
+*   getTopAlbumsByID(mbid, pages=1)
+*   getTopAlbumsByName(name, pages=1)
+
+# # # # # -- HELPER METHODS -- # # # # #
+"""
+
+# #################################### #
+#             MAIN METHODS             #
+# #################################### #
 
 # # # --- SEARCH FUNCTIONS --- # # #
 
@@ -283,7 +303,9 @@ def setKey(key):
     API_KEY = key
 
 
-# # # # # ====== HELPER METHODS ====== # # # # #
+# #################################### #
+#            HELPER METHODS            #
+# #################################### #
 
 # # # --- SEARCH HELPERS --- # # #
 
@@ -486,7 +508,7 @@ def build_artist_info_dict(artist):
         for sim_art in artist["similar"]["artist"]:
             entry = {"name": sim_art["name"]}
             if "image" in sim_art:
-                img_tuple = get_info_image(artist)
+                img_tuple = get_info_image(sim_art)
                 if img_tuple[0] != "":
                     # aka size is extralarge, large, or medium only
                     (entry["image"], entry["image_size"]) = img_tuple
