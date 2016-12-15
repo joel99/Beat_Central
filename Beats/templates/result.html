@@ -30,15 +30,18 @@
 				{% endfor %}
 				<hr>
 				<h2>Play it on Spotify!</h2><hr>
-				<iframe src="https://embed.spotify.com/?uri={{content[1][1]}}&view=coverart" width="400" height="380" frameborder="0" allowtransparency="true"></iframe>
+				<center><iframe src="https://embed.spotify.com/?uri={{content[1][1]}}&view=coverart" width="400" height="380" frameborder="0" allowtransparency="true"></iframe></center>
 				</div>
 			</div>
 			<div class="col-md-6">
+				{{content[0]['wiki'].split('<')[0]}}
 				<h2>Summary</h2><hr>
 				{% if content[0]['summary'] == NONE %}
 					<h2>No summary found.</h2>
 				{% elif content[0]['summary'].split('<')[0] == ' ' %}
 					<h2>No summary found.</h2>
+				{% elif content[0]['wiki'].split('<')[0] == content[0]['summary'].split('<')[0] %}
+					<div style="text-indent:40px;">{{content[0]['summary'].split('<')[0]}}</div>
 				{% else %}
 				<div style="text-indent:40px;">{{content[0]['summary'].split('<')[0]}}</div>
 				<a style="color:lightblue;" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -144,7 +147,7 @@
 				<div id="infobox">
 				<h2>Information</h2><hr>
 				<h4>
-				Number of Last.fm Listeners: {{content[0]['listeners']}}<br><br>
+				Last.fm Listeners: {{content[0]['listeners']}}<br><br>
 				Last.fm Playcount: {{content[0]['playcount']}} times <br><br>
 				Tags:
 				{% for i in content[0]['tags'] %}
@@ -161,6 +164,8 @@
 					<h2>No biography found.</h2>
 				{% elif content[0]['bio'].split('<')[0] == ' ' %}
 					<h2>No biography found.</h2>
+				{% elif content[0]['bio'].split('<')[0] == content[0]['summary'].split('<')[0] %}
+					<div style="text-indent:40px;">{{content[0]['summary'].split('<')[0]}}</div>
 				{% else %}
 				<div style="text-indent:40px;">{{content[0]['summary'].split('<')[0]}}</div>
 				<a style="color:lightblue;"role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -256,7 +261,7 @@
 				<h2>Information</h2><hr>
 				<h4>
 				Artist: {{content[0]['artist']}}<br>
-				Number of Last.fm Listeners: {{content[0]['listeners']}}<br>
+				Last.fm Listeners: {{content[0]['listeners']}}<br>
 				Last.fm Playcount: {{content[0]['playcount']}} times <br>
 				Tags:
 				{% for i in content[0]['tags'] %}
@@ -273,6 +278,8 @@
 					<h2>No summary found.</h2>
 				{% elif content[0]['wiki'].split('<')[0] == ' ' %}
 					<h2>No summary found.</h2>
+				{% elif content[0]['wiki'].split('<')[0] == content[0]['summary'].split('<')[0] %}
+					<div style="text-indent:40px;">{{content[0]['summary'].split('<')[0]}}</div>
 				{% else %}
 				<div style="text-indent:40px;">{{content[0]['wiki'].split('<')[0]}}</div>
 				<a style="color:lightblue;" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
